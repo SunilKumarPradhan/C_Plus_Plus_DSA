@@ -1,0 +1,21 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Binary Search (Iterative)
+02. Binary Search (Recursive)
+03. Analysis of Binary Search
+04. Index of first Occurrence in Sorted
+05. Index of last Occurrence in Sorted
+06. Count Occurrences in Sorted
+07. Count 1s in a Sorted Binary Array
+08. Square root
+09. Search in Infinite Sized Array
+10. Search in Sorted Rotated Array
+11. Find a Peak Element
+12. Two Pointer Approach
+13. Median of two sorted arrays
+14. Majority Element
+15. Repeating Elements Part (1)
+16. Repeating Elements Part (2)
+17. Allocate Minimum Pages (Naive Method)
+18. Allocate Minimum Pages (Binary Search)

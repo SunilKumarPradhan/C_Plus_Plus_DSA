@@ -1,0 +1,29 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Stack Data Structure
+02. Array Implementation of Stack in C++
+03. Array Implementation of Stack in Java
+04. Linked List Implementation of Stack in C++
+05. Linked List Implementation of Stack in Java
+06. Stack Applications
+07. Stack in C++ STL
+08. Stack in Java Collections
+09. Balanced Parenthesis
+10. Two stacks in an array
+11. K Stacks in an array
+12. Stock span problem
+13. Previous Greater Element
+14. Next Greater Element
+15. Largest Rectangular Area in a Histogram (Part 1)
+16. Largest Rectangular Area in a Histogram (Part 2)
+17. Largest Rectangle with all 1's
+18. Stack with getMin() in O(1)
+19. Design a Stack with getMin() in O(1) Space
+20. Infix, Prefix and Postfix Introduction
+21. Infix to Postfix (Simple Solution)
+22. Infix to Postfix (Efficient Solution)
+23. Evaluation of Postfix
+24. Infix to Prefix (Simple Solution)
+25. Infix to Prefix (Efficient Solution)
+26. Evaluation of Prefix

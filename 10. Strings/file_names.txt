@@ -1,0 +1,22 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Introduction to String
+02. Strings in C++
+03. String in Java
+04. Palindrome Check
+05. Check if a String is Subsequence of Other
+06. Check for Anagram
+07. Leftmost Repeating Character
+08. Leftmost Non-repeating Element
+09. Reverse words in a string
+10. Overview of Pattern Searching
+11. Naive Pattern Searching
+12. Improved Naive Pattern Searching for Distinct
+13. Rabin Karp Algorithm
+14. KMP Agorithm (Part 1 %3a Constructing LPS Array)
+15. KMP Agorithm (Part 2 %3a Complete Algorithm)
+16. Check if Strings are Rotations
+17. Anagram Search
+18. Lexicographic Rank of a String
+19. Longest Substring with Distinct Characters

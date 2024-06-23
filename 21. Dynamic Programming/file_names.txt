@@ -1,0 +1,33 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Introduction to DP
+02. Dynamic Programming Memoization
+03. Dynamic Programming Tabulation
+04. Longest Common Subsequence (Part 1)
+05. Longest Common Subsequence (Part 2)
+06. Variation of LCS
+07. Coin Change Count Combinations
+08. Edit Distance Problem
+09. Edit Distance Problem DP solution
+10. Longest Increasing Subsequence Problem
+11. Longest Increasing Subsequence O(nlogn)
+12. Variation of LIS (Part 1)
+13. Variations of LIS (Part 2)
+14. Maximum Cuts
+15. Minimum coins to make a value
+16. Minimum Jumps to reach at end
+17. 0-1 knapsack problem
+18. 0-1 knapsack problem DP Solution
+19. Optimal Strategy for a Game
+20. Egg Dropping Puzzle - Part 1
+21. Egg Dropping Puzzle - Part 2
+22. Count BSTs with n keys
+23. Maximum sum with no two consecutive
+24. Subset Sum Problem (Recursive Solution)
+25. Subset Sum Problem (DP Solution)
+26. Matrix Chain Multiplication
+27. Matrix Chain Multiplication (DP Solution)
+28. Palindrome Partitioning
+29. Allocate Minimum Pages (Naive Method)
+30. Allocate Minimum Pages (DP Solution)

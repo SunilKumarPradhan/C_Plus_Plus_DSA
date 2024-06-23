@@ -1,0 +1,7 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Trie Data Structure (Introduction)
+02. Trie (Representation, Search and Insert)
+03. Trie Delete
+04. Count Distinct Rows in a Binary Matrix

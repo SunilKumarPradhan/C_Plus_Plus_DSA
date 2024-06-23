@@ -1,0 +1,32 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Introduction to Hashing
+02. Hashing Application
+03. Direct Address Table
+04. Hashing Functions
+05. Collision Handling
+06. Chaining
+07. Implementation of Chaining
+08. Open Addressing
+09. Double Hashing
+10. Implementation of Open Addressing
+11. Chaining vs Open Addressing
+12. Unordered_set in C++ STL
+13. Unordered_map in C++ STL
+14. HashSet in Java
+15. HashMap in Java
+16. Count Distinct Elements
+17. Frequencies of array elements
+18. Intersection of two arrays
+19. Union of two unsorted arrays
+20. Pair with given sum in unsorted array
+21. Subarray with zero sum
+22. Subarray with given sum
+23. Longest subarray with given sum
+24. Longest Subarray with equal number of 0s and 1s
+25. Longest common span with same sum in binary array
+26. Longest Consecutive Subsequence
+27. Count Distinct Elements In Every Window
+28. More than n_k Occurences
+29. More than n_k Occurences (O(nk) solution)

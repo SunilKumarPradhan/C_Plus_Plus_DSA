@@ -1,0 +1,17 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Binary Heap Introduction
+02. Binary Heap Implementation
+03. Binary Heap Insert
+04. Binary Heap (Heapify and Extract)
+05. Binary Heap (Decrease Key, Delete and Build Heap)
+06. Heap Sort
+07. Priority Queue in C++
+08. PriorityQueue in Java
+09. Sort K-Sorted Array
+10. Buy Maximum Items with Given Sum
+11. K Largest Elements
+12. K Closest Elements
+13. Merge K Sorted Arrays
+14. Median of a Stream

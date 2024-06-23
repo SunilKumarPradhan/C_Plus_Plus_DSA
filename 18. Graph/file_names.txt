@@ -1,0 +1,33 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Introduction to Graph
+02. Graph Representation (Adjacency Matrix)
+03. Graph Representation (Adjacency List)
+04. Adjacency List implementation in CPP
+05. Adjacency List implementation in Java
+06. Adjacency Matrix and List Comparison
+07. Breadth First Search
+08. Applications of BFS
+09. Depth First Search
+10. Applications of DFS
+11. Shortest Path in an Unweighted Graph
+12. Detect Cycle in Undirected Graph
+13. Detect Cycle in a Directed Graph (Part 1)
+14. Topological Sorting (Kahn's BFS Based Algortihm)
+15. Detect Cycle in a Directed Graph (Part 2)
+16. Topological Sorting (DFS Based Algorithm)
+17. Shortest Path in DAG
+18. Prim's Algorithm-Minimum Spanning Tree
+19. Implementation of Prims Algorithm C++
+20. Implementation of Prim's Algorithm Java
+21. Dijkstra's Shortest Path Algorithm
+22. Implementation of Dijkstra's Algorithm C++
+23. Implementation of Dijkstra's Algorithm Java
+24. Kosaraju's Algorithm Part 1
+25. Kosaraju's Algorithm Part 2
+26. Bellman Ford Shortest Path Algorithm
+27. Articulation Point
+28. Bridges in Graph
+29. Tarjans Algorithm
+30. Kruskal's Algorithm

@@ -1,0 +1,12 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Segment Tree (Introduction)
+02. Constructing Segment Tree
+03. Range Query on Segment Tree
+04. Update Query on Segment Tree
+05. Binary Indexed Tree (Intoductiion)
+06. Binary Indexed Tree (An Example Problem)
+07. Binary Indxed Tree (Prefix Sum)
+08. Binary Indexed Tree (Prefix Sum Implementaion)
+09. Binary Indexed Tree (Update Operation)
