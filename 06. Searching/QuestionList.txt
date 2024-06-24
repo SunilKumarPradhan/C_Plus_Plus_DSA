@@ -1,1 +1,15 @@
-This folder is named: 06. Searching
+01IndexOfFirstOccurrenceInSorted
+02IndexOfLastOccurrenceInSorted
+03CountOccurrencesInSorted
+04Count1sInASortedBinaryArray
+05SquareRoot
+06SearchInInfiniteSizedArray
+07SearchInSortedRotatedArray
+08FindAPeakElement
+09TwoPointerApproach
+10MedianOfTwoSortedArrays
+11MajorityElement
+12RepeatingElementsPart1
+13RepeatingElementsPart2
+14AllocateMinimumPagesNaiveMethod
+15AllocateMinimumPagesBinarySearch
