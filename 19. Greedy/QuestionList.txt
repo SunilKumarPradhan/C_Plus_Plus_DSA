@@ -1,1 +1,8 @@
-This folder is named: 19. Greedy
+01IntroductionToGreedyAlgorithms
+02ActivitySelectionProblem
+03ActivitySelectionSolutionInC++
+04ActivitySelectionSolutionInJava
+05FractionalKnapsack
+06FractionalKnapsackInC++
+07FractionalKnapsackInJava
+08JobSequencingProblem

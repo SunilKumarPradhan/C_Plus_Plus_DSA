@@ -1,1 +1,9 @@
-This folder is named: 13. Queue
+01QueueDataStructure
+02ApplicationOfQueueDataStructure
+03ImplementationOfQueueUsingArray
+04ImplementationOfQueueUsingLinkedList
+05QueueInC++STL
+06QueueInJava
+07ImplementingStackUsingQueue
+08ReversingAQueue
+09GenerateNumbersWithGivenDigits

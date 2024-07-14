@@ -1,1 +1,8 @@
-This folder is named: 14. Deque
+01DequeDataStructure
+02ArrayImplementationOfDeque
+03DequeInC++STL
+04DequeInJava
+05ArrayDequeInJava
+06DesignADataStructureWithMinAndMaxOperations
+07MaximumsOfAllSubarraysOfSizeK
+08FirstCircularTourcd..

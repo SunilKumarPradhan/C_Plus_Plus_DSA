@@ -1,1 +1,14 @@
-This folder is named: 17. Heap
+01BinaryHeapIntroduction
+02BinaryHeapImplementation
+03BinaryHeapInsert
+04BinaryHeapHeapifyAndExtract
+05BinaryHeapDecreaseKeyDeleteAndBuildHeap
+06HeapSort
+07PriorityQueueInC++
+08PriorityQueueInJava
+09SortKSortedArray
+10BuyMaximumItemsWithGivenSum
+11KLargestElements
+12KClosestElements
+13MergeKSortedArrays
+14MedianOfAStream

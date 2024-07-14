@@ -28,6 +28,7 @@ void PrevGeaterEle(int arr[] , int n){
         st.push(arr[i]);
     }
 }
+
 int main() {
     int arr[]={18,12,13,14,11,16};
     int n=sizeof(arr)/sizeof(arr[0]);
