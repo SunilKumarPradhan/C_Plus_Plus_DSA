@@ -1,1 +1,9 @@
-This folder is named: 23. Segment and Binary Indexed Trees
+01SegmentTreeIntroduction
+02ConstructingSegmentTree
+03RangeQueryOnSegmentTree
+04UpdateQueryOnSegmentTree
+05BinaryIndexedTreeIntoductiion
+06BinaryIndexedTreeAnExampleProblem
+07BinaryIndxedTreePrefixSum
+08BinaryIndexedTreePrefixSumImplementaion
+09BinaryIndexedTreeUpdateOperation

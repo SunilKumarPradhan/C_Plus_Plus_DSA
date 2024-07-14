@@ -1,1 +1,4 @@
-This folder is named: 20. Backtracking
+01ConceptsOfBacktracking
+02RatInAMaze
+03NQueenProblem
+04SudokuProblem

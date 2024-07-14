@@ -1,1 +1,4 @@
-This folder is named: 22. Trie
+01TrieDataStructureIntroduction
+02TrieRepresentationSearchAndInsert
+03TrieDelete
+04CountDistinctRowsInABinaryMatrix

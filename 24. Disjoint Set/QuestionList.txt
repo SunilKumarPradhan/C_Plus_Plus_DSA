@@ -1,1 +1,5 @@
-This folder is named: 24. Disjoint Set
+01DisjointSetIntroduction
+02FindAndUnionOperationsOnDisjointSets
+03UnionByRank
+04PathCompression
+05KruskalsAlgorithm
