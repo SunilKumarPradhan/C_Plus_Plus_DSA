@@ -1,42 +1,39 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 using namespace std;
 
-// Definition for a binary tree node
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+struct node {
+    int key;
+    node *left;
+    node *right;
+
+    node(int k) {
+        key = k;
+        left = right = NULL;
+    }
 };
 
-// Function to perform inorder traversal recursively
-void inorderTraversal(TreeNode* root) {
-    if (root == nullptr) return;
-    
-    inorderTraversal(root->left);      // Traverse left subtree
-    cout << root->val << " ";          // Visit root
-    inorderTraversal(root->right);     // Traverse right subtree
+// Inorder traversal ka function jo tree ko inorder mein traverse karta hai
+
+void inorder(node *root){
+    if(root != NULL){
+        inorder(root->left);
+        cout<<root->key<< " ";
+        inorder(root->right);
+    }
 }
 
 int main() {
-    // Example of constructing a binary tree
-    TreeNode* root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->right = new TreeNode(3);
-    root->left->left = new TreeNode(4);
-    root->left->right = new TreeNode(5);
+    node *root = new node(3);
 
-    // Perform inorder traversal
-    cout << "Inorder traversal:" << endl;
-    inorderTraversal(root);
-    cout << endl;
+    root->left = new node(2);
+    root->right = new node(4);
+    root->right->right = new node(5);
+    root->left->left = new node(1);
 
-    // Clean up memory (optional)
-    delete root->left->left;
-    delete root->left->right;
-    delete root->left;
-    delete root->right;
-    delete root;
+    //cout << "Inorder traversal: " << inorder(root)<<endl; // In C++, you cannot insert a void function call directly into a cout stream insertion operation.
+    cout << "InOrder Traversal : "<<endl;
 
-    return 0;
+    inorder(root); // ye fucntion khud hi print kar deta hai , hence alag se print karne ki koi zarurat nahi
+    
+    return 0; 
 }
