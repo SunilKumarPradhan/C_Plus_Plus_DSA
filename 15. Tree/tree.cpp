@@ -1,7 +1,7 @@
 // tree.cpp
 #include "tree.h"
 
-node* createSampleTree() {
+node* makeTree() {
     node *root = new node(3);
     root->left = new node(2);
     root->right = new node(4);

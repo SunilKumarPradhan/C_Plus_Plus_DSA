@@ -13,6 +13,6 @@ struct node {
     }
 };
 
-node* createSampleTree();
+node* makeTree();
 
 #endif // TREE_H
