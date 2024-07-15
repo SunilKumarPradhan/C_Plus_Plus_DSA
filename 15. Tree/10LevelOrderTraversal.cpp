@@ -12,11 +12,25 @@ struct node {
     }
 };
 
-void postorder(node *root){
-    if(root!=NULL){
-        postorder(root->left);
-        postorder(root->right);
-        cout<<root->key<<" ";
+void printLevelOrder(node *root) {
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+
+    if (root == NULL) return;
+
+    queue<node *> q;
+    q.push(root);
+
+    while (!q.empty()) {
+        node *curr = q.front();
+        q.pop();
+
+        cout << curr->key << " ";
+
+        if (curr->left)
+            q.push(curr->left);
+        if (curr->right)
+            q.push(curr->right);
     }
 }
 
@@ -30,7 +44,7 @@ int main() {
 
     cout << "PostOrder Traversal : "<<endl;
 
-    postorder(root);
+    printLevelOrder(root);
 
     return 0; 
 }
