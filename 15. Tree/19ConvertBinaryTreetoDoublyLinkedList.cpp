@@ -12,18 +12,16 @@ struct node {
     }
 };
 
-node *prev = NULL, *head = NULL;
-
-node* BTtoDLL(node *root) {
+node *BTtoDLL(node *root, node *&prev, node *&head) {
     if (root == NULL) return root;
-    BTtoDLL(root->left);
+    BTtoDLL(root->left, prev, head);
     if (prev == NULL) head = root;
     else {
         root->left = prev;
         prev->right = root;
     }
     prev = root;
-    BTtoDLL(root->right);
+    BTtoDLL(root->right, prev, head);
     return head;
 }
 
@@ -41,6 +39,10 @@ int main() {
     root->right->right = new node(5);
     root->left->left = new node(1);
 
-    node *head = BTtoDLL(root);
+    node *prev = NULL;
+    node *head = NULL;
+    head = BTtoDLL(root, prev, head);
     printDLL(head);
+
+    return 0;
 }
