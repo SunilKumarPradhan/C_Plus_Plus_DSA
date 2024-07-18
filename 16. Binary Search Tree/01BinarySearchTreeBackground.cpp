@@ -24,7 +24,7 @@ int main() {
     root->right->right = new node(80);
 
     cout << "  ";
-    (root); 
+    //(root); 
     cout << endl;
 
     return 0;
