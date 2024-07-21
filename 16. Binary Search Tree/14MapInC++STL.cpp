@@ -1,31 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct node {
-    int key;
-    node *left;
-    node *right;
-
-    node(int k) {
-        key = k;
-        left = right = NULL;
-    }
-};
-
-
-
 int main() {
-    node* root = new node(50);
-    root->left = new node(30);
-    root->right = new node(70);
-    root->left->left = new node(20);
-    root->left->right = new node(40);
-    root->right->left = new node(60);
-    root->right->right = new node(80);
+    map<int, string> m;
 
-    cout << "  ";
-    (root); 
-    cout << endl;
+    m.insert(pair<int, string>(1, "One"));  // Style 1: Using insert method with pair
+    m.insert(make_pair(2, "Two"));  // Style 2: Using insert method with make_pair
+   
+    m[3] = "Three";  // Style 3: Using subscript operator (least keywords)
+    m[4] = "Four";
+    m[5] = "Five";
 
+    cout << "Elements in the map: " << endl;
+    cout << "Elements in the map (range-based for loop): " << endl;
+    for (auto it: m) {
+        cout << it.first << " : " << it.second << endl;
+    }
+
+
+    int x = 3;
+    auto it = m.find(x);
+
+    cout << (it != m.end() ? "Element with key " + to_string(x) + " found: " + it->second : "Element with key " + to_string(x) + " not found.") << endl;
+
+    // Style 1: Using erase method with key
+    int deleteKey = 2;
+    m.erase(deleteKey);
+
+    // Style 2: Using erase method with iterator (least keywords)
+    it = m.find(1);
+    if (it != m.end()) {
+        m.erase(it);
+    }
+
+    cout << "Elements in the map after deletion: " << endl;
+    for (auto it: m) cout << it.first << " : " << it.second << endl;
+
+    cout << "Size of the map: " << m.size() << endl;
+
+    cout << (m.empty() ? "The map is empty." : "The map is not empty.") << endl;
+
+    m.clear();
+    cout << "Elements in the map after clearing: " << m.size() << endl;
     return 0;
 }

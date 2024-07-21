@@ -1,31 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct node {
-    int key;
-    node *left;
-    node *right;
-
-    node(int k) {
-        key = k;
-        left = right = NULL;
-    }
-};
-
-
-
 int main() {
-    node* root = new node(50);
-    root->left = new node(30);
-    root->right = new node(70);
-    root->left->left = new node(20);
-    root->left->right = new node(40);
-    root->right->left = new node(60);
-    root->right->right = new node(80);
+    
+     set<int> s; // Create a set of integers
 
-    cout << "  ";
-    (root); 
-    cout << endl;
+    s.insert(10);
+    s.insert(20);
+    s.insert(30);
+    s.insert(40);
+    s.insert(50);
+
+    cout << "Elements in the set: ";
+
+    for (auto it  : s)  cout << it << " ";
+    
+    cout <<  endl;
+
+    int x = 30;
+
+    cout <<    (s.find(x) != s.end())   ? "Element "+to_string(x)+" found in the set." : "Element "+to_string(x)+" not found in the set." ;
+    s.erase(20);
+
+    cout << "Elements in the set after deletion: ";
+    for (auto it  : s)  cout << it << " ";
+    
+    cout <<  endl;
+
+    cout << "Size of the set: " << s.size() <<  endl;
+
+    cout<< (s.empty()) ? "The set is empty." :"The set is not empty.";
+
+    s.clear();
+    cout << "Elements in the set after clearing: " << s.size() <<  endl;
 
     return 0;
 }
+

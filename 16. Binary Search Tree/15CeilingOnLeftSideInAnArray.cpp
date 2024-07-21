@@ -1,31 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct node {
-    int key;
-    node *left;
-    node *right;
+vector<int> findCeilingOnLeftSide(vector<int>& arr) {
+    
+    vector<int> res; // Result vector to store ceilings
+    set<int> seen;   // Set to store the elements seen so far in a sorted order
 
-    node(int k) {
-        key = k;
-        left = right = NULL;
+    for ( int& num : arr) {
+        auto it = seen.lower_bound(num);
+
+        res.push_back(it != seen.end() ? *it : -1);  //action( condion ? if : else) ;
+        seen.insert(num);
     }
-};
-
-
+    return res;
+}
 
 int main() {
-    node* root = new node(50);
-    root->left = new node(30);
-    root->right = new node(70);
-    root->left->left = new node(20);
-    root->left->right = new node(40);
-    root->right->left = new node(60);
-    root->right->right = new node(80);
+    vector<int> arr = {2, 8, 30, 15, 25, 12}; // Example array
+    vector<int> result = findCeilingOnLeftSide(arr);
 
-    cout << "  ";
-    (root); 
+    cout << "Ceiling on the left side for each element: ";
+    for (const int& num : result){
+        cout << num << " ";
+    }
     cout << endl;
-
     return 0;
 }

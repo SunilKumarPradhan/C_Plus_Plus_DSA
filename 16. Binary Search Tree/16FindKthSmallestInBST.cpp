@@ -12,7 +12,23 @@ struct node {
     }
 };
 
+int findKthSmallest(node* root, int k) {
+    stack<node*> s;
+    auto curr = root;
 
+    while (curr || !s.empty()) {
+        while (curr) {
+            s.push(curr);
+            curr = curr->left;
+        }
+
+        curr = s.top(); s.pop();
+        if (--k == 0) return curr->key;
+
+        curr = curr->right;
+    }
+    throw runtime_error("k is out of bounds");
+}
 
 int main() {
     node* root = new node(50);
@@ -24,8 +40,11 @@ int main() {
     root->right->right = new node(80);
 
     cout << "  ";
-    (root); 
-    cout << endl;
-
+    int k = 4;
+    try {
+        cout << "The " << k << "th smallest element is " << findKthSmallest(root, k) << endl;
+    } catch (const runtime_error& e) {
+        cout << e.what() << endl;
+    }
     return 0;
 }
