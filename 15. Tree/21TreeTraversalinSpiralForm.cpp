@@ -100,3 +100,62 @@ int main() {
 
     return 0;
 }
+
+
+/*
+Iss function ka naam hai printSpiral aur yeh binary tree ko spiral order (zigzag level order) mein print karta hai.
+
+Naive approach:
+- Pehle, ek queue aur ek stack use karte hain.
+- Ek boolean variable reverse ko initialize karte hain jo direction ko track karega.
+- Root node ko queue mein push karte hain.
+- Queue mein har level ke liye:
+  1. Current level ke nodes ko process karte hain.
+  2. Agar reverse true hai, toh nodes ko stack mein push karte hain.
+  3. Warna directly print karte hain.
+  4. Next level ke nodes ko queue mein push karte hain.
+  5. Agar reverse true hai, toh stack ke contents ko print karte hain aur stack ko clear karte hain.
+  6. Reverse ko toggle karte hain (true se false ya false se true).
+
+Example:
+- Agar tree hai:
+       1
+      / \
+     2   3
+    / \ / \
+   7  6 5  4
+
+- Spiral order traversal: 1 3 2 7 6 5 4
+
+Dry Run:
+1. Tree ka structure:
+       1
+      / \
+     2   3
+    / \ / \
+   7  6 5  4
+
+2. printSpiral function call hota hai:
+   - root = 1
+
+3. Queue: [1]
+   - Level 1: 1
+   - Print 1
+   - Next level: [2, 3]
+   - Toggle reverse to true
+
+4. Queue: [2, 3]
+   - Level 2: 2 3
+   - Push 2, 3 to stack
+   - Next level: [7, 6, 5, 4]
+   - Print stack: 3 2
+   - Toggle reverse to false
+
+5. Queue: [7, 6, 5, 4]
+   - Level 3: 7 6 5 4
+   - Print 7 6 5 4
+   - No more nodes to process
+
+Output:
+Spiral Order Traversal of binary tree is: 1 3 2 7 6 5 4
+*/

@@ -1,61 +1,48 @@
-#include <bits/stdc++.h>
-using namespace std;
 
-struct node {
-    int key;
-    node *left, *right;
+/*
+Iss function ka naam hai height aur yeh tree ka height return karta hai aur saath hi saath tree ka diameter calculate karta hai.
 
-    node(int k) {
-        key = k;
-        left = right = NULL;
-    }
-};
+Efficient approach:
+- Function height recursive hai aur har node pe call hota hai.
+- Har call mein left aur right subtree ka height calculate karte hain.
+- Phir, un heights ka sum aur root ko include karke diameter ka maximum value res variable mein store karte hain.
+- Return karte hain current node ka height (1 + max(left height, right height)).
 
-// This is naive approach takes about big oh : n^2
+Example:
+- Agar tree hai:
+       1
+      / \
+     2   3
+    / \ / \
+   7  6 5  4
 
-// int height(node *root){
-//     if(root==NULL) return 0;
-//     else return 1+max(height(root->left),height(root->right));
-// }
+- Diameter of tree: Maximum number of nodes on the longest path between two leaf nodes (in this case, path from 7 to 4 via root 1).
 
+Process:
+- Har node pe height function call hota hai aur res update hota hai.
 
-//This is the efficient solution.
-int res=0;
-int height(node *root){
-    if (root==NULL) return 0;
+Dry Run:
+1. Tree ka structure:
+       1
+      / \
+     2   3
+    / \ / \
+   7  6 5  4
 
-    int lh = height(root->left);
-    int rh = height(root->right);
+2. height function call hota hai root = 1:
+   - root = 1, lh = height(root->left) = 2, rh = height(root->right) = 2
+   - res = max(res, lh + rh + 1) = 5
 
-    res=max(res,lh+rh+1);
-    return 1+max(lh,rh);
-}
+3. height function call hota hai root->left = 2:
+   - root = 2, lh = height(root->left) = 1, rh = height(root->right) = 1
+   - res = max(res, lh + rh + 1) = 3
 
-int treeDiam(node *root){
-    if(root==NULL) return 0;
+4. height function call hota hai root->right = 3:
+   - root = 3, lh = height(root->left) = 1, rh = height(root->right) = 1
+   - res = max(res, lh + rh + 1) = 3
 
-    int d1= 1 + height(root->left) + height(root->right);
-    int d2= treeDiam(root->left);
-    int d3= treeDiam(root->right);
+5. Continue recursive calls for leaf nodes.
 
-    return max(d1,max(d2,d3));
-}
-
-
-// the above function returns height but sets the "res" variable to diameter
-// this means res= diameter.
-// this function simply replaces the height function and solves it in big oh : n 
-
-int main() {
-    node *root = new node(1);
-    root->left = new node(2);
-    root->right = new node(3);
-    root->left->left = new node(7);
-    root->left->right = new node(6);
-    root->right->left = new node(5);
-    root->right->right = new node(4);
-    cout<<"\n";
-    cout <<"The diameter of binary tree is: "<<treeDiam(root);
-    
-    return 0;
-}
+Output:
+The diameter of binary tree is: 5
+*/

@@ -42,9 +42,9 @@ void printLeftView(node *root) {
             node *curr = q.front();
             q.pop();
             
-            if (i == 0) cout << curr->key << " ";
-            if (curr->left != NULL) q.push(curr->left);
-            if (curr->right != NULL) q.push(curr->right);
+            if (i == 0) cout << curr->key << " "; // Print the first node of each level
+            if (curr->left != NULL) q.push(curr->left); // Enqueue left child
+            if (curr->right != NULL) q.push(curr->right); // Enqueue right child
         }
     }
 }
@@ -57,5 +57,58 @@ int main() {
     root->left->left = new node(1);
     cout << "The LeftView of the tree is : " << endl;
     printLeftView(root);
-    return 0;
+    return 0; // Program ka execution yaha se shuru hota hai.
 }
+
+/*
+
+Iss program mein hum left view of a binary tree ko find kar rahe hai, iterative approach mein.
+
+Ek queue use kiya jata hai jo nodes ke addresses ko store karta hai.
+Queue mein root node initially push kiya jata hai.
+
+While loop chalta hai jab tak queue khali na ho:
+  - Har iteration mein queue ka size count kiya jata hai.
+  - Har level ke nodes ko print karne ke liye ek loop chalate hai:
+    - Queue se current node ko pop kiya jata hai.
+    - Agar ye first node of current level hai (i == 0), to uska key print kiya jata hai.
+    - Agar left child exist karta hai, to queue mein push kiya jata hai.
+    - Agar right child exist karta hai, to queue mein push kiya jata hai.
+
+Dry Run:
+1. Humare tree ka structure:
+       3
+      / \
+     2   4
+    /     \
+   1       5
+
+2. printLeftView function call hota hai:
+   - queue mein root (3) push kiya jata hai.
+
+3. While loop shuru hota hai (jab tak queue khali na ho):
+   - count = 1, i = 0
+     - curr = 3, queue se pop kiya jata hai, aur 3 print kiya jata hai.
+     - Left child (2) queue mein push kiya jata hai.
+     - Right child (4) queue mein push kiya jata hai.
+
+   - count = 2, i = 0
+     - curr = 2, queue se pop kiya jata hai, aur 2 print kiya jata hai.
+     - Left child (1) queue mein push kiya jata hai.
+
+   - count = 1, i = 0
+     - curr = 4, queue se pop kiya jata hai, aur 4 print kiya jata hai.
+     - Right child (5) queue mein push kiya jata hai.
+
+   - count = 1, i = 0
+     - curr = 1, queue se pop kiya jata hai, aur 1 print kiya jata hai.
+
+   - count = 1, i = 0
+     - curr = 5, queue se pop kiya jata hai, aur 5 print kiya jata hai.
+
+4. While loop khatam ho jata hai aur output "The LeftView of the tree is :" ke saath 3 2 1 print hota hai.
+
+Output:
+The LeftView of the tree is :
+3 2 1
+*/
