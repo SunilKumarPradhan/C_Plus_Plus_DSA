@@ -19,7 +19,11 @@ int main() {
 
     int x = 30;
 
-    cout <<    (s.find(x) != s.end())   ? "Element "+to_string(x)+" found in the set." : "Element "+to_string(x)+" not found in the set." ;
+    cout << ( s.find(x) != s.end()  )   ? "Element "+to_string(x)+" found in the set." : "Element "+to_string(x)+" not found in the set." ;
+     
+    //cout<<( )<<endl;       :: if there is no integers to be printed
+    //cout<< (condn ) ? "st1"+"st2"+to_string(int);
+    
     s.erase(20);
 
     cout << "Elements in the set after deletion: ";

@@ -38,7 +38,10 @@ int main() {
 
     cout << "Size of the map: " << m.size() << endl;
 
-    cout << (m.empty() ? "The map is empty." : "The map is not empty.") << endl;
+    cout << (   m.empty() ? "The map is empty." : "The map is not empty."   ) << endl;
+    
+   // cout<<(  condn ?  op1 :op2    )<<endl;
+
 
     m.clear();
     cout << "Elements in the map after clearing: " << m.size() << endl;
