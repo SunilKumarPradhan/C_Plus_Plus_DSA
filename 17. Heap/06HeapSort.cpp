@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void heapify(vector<int>& arr, int n, int i) {
-    int largest = i; 
+void heapify(vector<int>& arr, int n, int root) {
+    int largest = root;
+    int i=root; // ye wala extra sirf  understanding ke liye daala hai
+    
     int left = 2 * i + 1; 
     int right = 2 * i + 2; 
 
@@ -108,6 +110,3 @@ Dry Run:
 Output:
 [5, 6, 7, 11, 12, 13]
 */
-
-
-

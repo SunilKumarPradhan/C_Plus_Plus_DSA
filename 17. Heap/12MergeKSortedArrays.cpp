@@ -1,4 +1,57 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to merge k sorted arrays
+vector<int> mergeKSortedArrays(vector<vector<int>>& arrays) {
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> minHeap;
+
+    vector<int> result;
+
+    for (int i = 0; i < arrays.size(); i++) {
+        if (!arrays[i].empty()) {
+            minHeap.push({arrays[i][0], {i, 0}});
+        }
+    }
+  
+    while (!minHeap.empty()) {
+        
+        auto top = minHeap.top();
+        minHeap.pop();
+
+        int value = top.first;
+        int arrayIndex = top.second.first;
+        int elementIndex = top.second.second;
+
+        result.push_back(value);
+
+        if (elementIndex + 1 < arrays[arrayIndex].size()) {
+            minHeap.push({arrays[arrayIndex][elementIndex + 1], {arrayIndex, elementIndex + 1}});
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    // Example input
+    vector<vector<int>> arrays = {
+        {2, 6, 12},
+        {1, 9},
+        {23, 34, 90, 2000}
+    };
+
+    
+    vector<int> mergedArray = mergeKSortedArrays(arrays);
+
+    cout << "Merged array is: ";
+    for (int num : mergedArray) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
 
 /*
 Iss function ka naam hai mergeKSortedArrays aur yeh function k sorted arrays ko merge karke ek single sorted array banaata hai.
@@ -51,3 +104,4 @@ Example:
 Output:
 Merged array is: 1 2 6 9 12 23 34 90 2000
 */
+
