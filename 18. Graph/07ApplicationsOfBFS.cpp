@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+// Please see the notes given below
 
 void addEdge(vector<int> adj[], int u, int v) {
     adj[u].push_back(v);
