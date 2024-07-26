@@ -29,7 +29,7 @@ void BFS(vector<int> adj[], int start, int size) {
 
 
 int main() {
-    int size = 5;  // Define the correct size of the graph
+    int size = 5;  
     vector<int> adj[size];
 
     addEdge(adj, 2, 3);
