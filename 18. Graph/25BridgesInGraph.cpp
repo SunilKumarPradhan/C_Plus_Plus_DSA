@@ -1,42 +1,38 @@
-#include <bits/stdc++.h>
-using namespace std;
+/*
+Bridges in Graphs
 
+- Definition:
+  A bridge (or a cut-edge) in a graph is an edge that, when removed, increases the number of connected components of the graph. In other words, it is an edge whose removal disconnects the graph.
 
+- Importance:
+  Bridges are crucial in network design and reliability. Identifying bridges helps in understanding critical connections in networks where failure of a single edge can disrupt connectivity.
 
-void addEdge(vector<int> adj[], int u, int v) {
-    adj[u].push_back(v);
-    adj[v].push_back(u);  
-}
+- Finding Bridges:
+  To find bridges in a graph, we can use Depth-First Search (DFS) based algorithms. The key idea is to keep track of the discovery and low values of vertices.
 
-int main() {
-    int size = 10;  
-    vector<int> adj[size];
+- Key Terminologies:
+  1. **Discovery Time (disc)**: The time when a vertex is first visited during the DFS traversal.
+  2. **Lowest Time (low)**: The lowest discovery time reachable from a vertex, including its descendants and back edges.
 
-    addEdge(adj, 0, 1);
-    addEdge(adj, 0, 2);
-    addEdge(adj, 0, 3);
-    addEdge(adj, 1, 4);
-    addEdge(adj, 1, 5);
-    addEdge(adj, 2, 6);
-    addEdge(adj, 2, 7);
-    addEdge(adj, 3, 8);
-    addEdge(adj, 3, 9);
-    addEdge(adj, 4, 6);
-    addEdge(adj, 5, 7);
-    addEdge(adj, 6, 8);
-    addEdge(adj, 7, 9);
+- Algorithm Outline:
+  1. Perform DFS traversal of the graph.
+  2. Maintain two arrays, `disc[]` and `low[]`, to store the discovery and lowest times of vertices.
+  3. For each vertex, check its adjacent vertices:
+     - If an adjacent vertex is not visited, recursively perform DFS on it and update the `low` value of the current vertex.
+     - If the lowest value reachable from the adjacent vertex is greater than the discovery time of the current vertex, then the edge connecting them is a bridge.
+  4. If an adjacent vertex is already visited and is not the parent of the current vertex, update the `low` value of the current vertex to the minimum of its own `low` value and the discovery time of the adjacent vertex.
 
+- Example:
+  In a graph with edges:
+    1. 0 -- 1
+    2. 1 -- 2
+    3. 2 -- 0
+    4. 1 -- 3
 
-    cout << "Adjacency List Representation:"<<endl;
-    for (int i = 0; i < size; ++i) {
-        cout << i << ": ";
-        for (auto j : adj[i])
-            cout << j << " ";
-        cout << endl;
-    }
+  The edge (1, 3) is a bridge because removing it would disconnect vertex 3 from the rest of the graph.
 
+- Complexity:
+  The time complexity of finding bridges using DFS is O(V + E), where V is the number of vertices and E is the number of edges. This is efficient for sparse and dense graphs alike.
 
-
-    
-    return 0;
-}
+Overall, finding bridges helps in identifying critical edges whose failure would impact the connectivity of the graph.
+*/

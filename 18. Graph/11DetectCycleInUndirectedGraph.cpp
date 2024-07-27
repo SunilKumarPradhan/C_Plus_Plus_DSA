@@ -87,3 +87,81 @@ int main() {
 
     return 0;
 }
+
+
+
+/*
+Iss function ka naam hai isCyclic aur yeh graph mein cycle ko detect karta hai using Depth-First Search (DFS).
+
+- Function ka logic:
+  1. `isCyclic` function ko adjacency list aur graph ka size diya jata hai.
+  2. Ek visited array create kiya jata hai jise sabhi nodes ke liye false se initialize kiya jata hai.
+  3. Har node ke liye, agar woh visited nahi hai, toh `DFSUtil` function call kiya jata hai.
+  4. `DFSUtil` function har node ko visit karta hai aur check karta hai ki koi back edge exist karti hai ya nahi.
+  5. Agar back edge milti hai (i.e., already visited node jo parent nahi hai), toh cycle present hai.
+
+Process:
+- Pehle, `isCyclic` function ek visited array create karta hai aur usse false se initialize karta hai.
+- Har node ke liye, agar woh visited nahi hai, toh `DFSUtil` function call karta hai.
+- `DFSUtil` function har node ko visit karta hai aur check karta hai ki koi back edge exist karti hai ya nahi.
+- Agar back edge milti hai, toh cycle present hai aur true return karta hai.
+
+Example:
+- Agar graph ka example hai:
+
+0 -- 1 -- 5 -- 7
+|    |    |    |
+2 -- 6 -- 14-- 16
+|    |    |    |
+3 -- 9 -- 11-- 19
+|    |    |    |
+4 --10 -- 12-- 20
+
+then
+
+Adjacency List Representation:
+0: 1 2 3 4 
+1: 0 5 6 
+2: 0 7 8 
+3: 0 9 10 
+4: 0 11 12 
+5: 1 7 13 
+6: 1 14 8 
+7: 2 15 16 
+8: 2 6 
+9: 3 17 
+10: 3 18 
+11: 4 19 
+12: 4 20 
+13: 5 15 
+14: 6 16 
+15: 7 13 
+16: 7 14 
+17: 9 19 
+18: 10 20 
+19: 11 17 
+20: 12 18 
+
+- `isCyclic` function ko call karte hai jo graph mein cycle detect karta hai aur result print karta hai.
+
+Dry Run:
+1. Initial setup and input:
+    - Visited array: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    - Adjacency list: [ [1, 2, 3, 4], [0, 5, 6], [0, 7, 8], [0, 9, 10], [0, 11, 12], [1, 7, 13], [1, 14, 8], [2, 15, 16], [2, 6], [3, 17], [3, 18], [4, 19], [4, 20], [5, 15], [6, 16], [7, 13], [7, 14], [9, 19], [10, 20], [11, 17], [12, 18] ]
+    - Start node: 0
+
+2. Step-by-step execution:
+    - Start from node 0 -> visited: [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    - Visit neighbor 1 -> DFSUtil(1, parent=0) -> visited: [true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    - Visit neighbor 5 -> DFSUtil(5, parent=1) -> visited: [true, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    - Visit neighbor 7 -> DFSUtil(7, parent=5) -> visited: [true, true, false, false, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    - Visit neighbor 2 -> DFSUtil(2, parent=7) -> visited: [true, true, true, false, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    - Visit neighbor 0 -> already visited and not parent -> cycle detected -> return true
+
+3. Final output:
+    - Graph contains cycle
+
+Output:
+Graph contains cycle
+*/
+

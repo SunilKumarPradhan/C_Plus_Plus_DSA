@@ -85,3 +85,76 @@ int main() {
 
     return 0;
 }
+
+
+/*
+Iss function ka naam hai tarjan aur yeh function Tarjan's algorithm use karke graph ke Strongly Connected Components (SCCs) find karta hai.
+
+- Function ka logic:
+  1. DFS traversal karte hain, har node ko discovery time aur lowest discovery time assign karte hain.
+  2. Agar ek node ka lowest discovery time apne discovery time ke barabar ho toh yeh ek SCC ka head node hota hai.
+  3. Stack ka use karke SCCs ko detect karte hain.
+
+Process:
+- Pehle, har node ka discovery time aur low value initialize karte hain (-1 se).
+- DFS traversal mein nodes ko visit karte hain aur stack mein daalte hain jab tak ek SCC ka head detect na ho.
+- Agar ek SCC detect ho jaye, toh us SCC ke sabhi nodes ko stack se nikaal kar ek SCC component mein daalte hain.
+
+Example:
+- Agar example graph yeh hai:
+
+Adjacency List:
+0: 1
+1: 2 3
+2: 0
+3: 4
+4: 5
+5: 3
+6: 5 7
+7: 8
+8: 9
+9: 6
+
+Dry Run:
+1. Initial setup and input:
+   - Adjacency list representation as given above.
+   - Source: Start from node 0
+
+2. Step-by-step execution with intermediate values:
+   - Starting from node 0:
+     - Node 0 -> Disc = 1, Low = 1
+     - Node 1 -> Disc = 2, Low = 2
+     - Node 2 -> Disc = 3, Low = 3
+     - Back to Node 0 -> Update Low[2] = min(Low[2], Disc[0]) => Low[2] = 1
+     - Back to Node 1 -> Update Low[1] = min(Low[1], Low[2]) => Low[1] = 1
+     - Back to Node 0 -> Update Low[0] = min(Low[0], Low[1]) => Low[0] = 1
+     - Detected SCC: {0, 2, 1}
+
+   - Continue for remaining nodes:
+     - Node 3 -> Disc = 4, Low = 4
+     - Node 4 -> Disc = 5, Low = 5
+     - Node 5 -> Disc = 6, Low = 6
+     - Back to Node 3 -> Update Low[3] = min(Low[3], Low[5]) => Low[3] = 4
+     - Detected SCC: {3, 5, 4}
+
+   - Continue for remaining nodes:
+     - Node 6 -> Disc = 7, Low = 7
+     - Node 7 -> Disc = 8, Low = 8
+     - Node 8 -> Disc = 9, Low = 9
+     - Node 9 -> Disc = 10, Low = 10
+     - Back to Node 6 -> Update Low[9] = min(Low[9], Low[6]) => Low[9] = 7
+     - Detected SCC: {6, 9, 8, 7}
+
+3. Final output:
+   - SCCs detected: 
+     {5, 4, 3}
+     {2, 1, 0}
+     {9, 8, 7, 6}
+
+Output:
+Strongly Connected Components:
+5 4 3
+2 1 0
+9 8 7 6
+*/
+
