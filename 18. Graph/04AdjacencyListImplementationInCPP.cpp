@@ -6,9 +6,31 @@ void addEdge(vector<int> adj[], int u, int v) {
     adj[v].push_back(u);  // Remove this line if the graph is directed
 }
 
+/*
+Each line represents a node and its connections. Here's how to interpret it:
 
+The number before the colon (:) is the node we're looking at.
+The numbers after the colon are the nodes that are directly connected to this node.
 
+For example, let's take a few lines from the output:
 
+0: 1 2 3 4
+1: 0 5 6
+5: 1 13 7
+
+Here's how to read these:
+
+- 0: 1 2 3 4 means that node 0 is connected to nodes 1, 2, 3, and- 4.
+- 1: 0 5 6 means that node 1 is connected to nodes 0, 5, and 6.
+- 5: 1 13 7 means that node 5 is connected to nodes 1, 13, and 7.
+
+Some key points to remember:
+
+This is an undirected graph, so if node A is connected to node B, node B will also be connected to node A.
+The order of the connections doesn't matter. 1: 0 5 6 and 1: 6 0 5 represent the same connections.
+If a node has no connections, it would appear as just the node number followed by a colon with nothing after it.
+
+*/
 int main() {
     int size = 5;  // Define the correct size of the graph
     vector<int> adj[size];
