@@ -1,6 +1,6 @@
-# 🚀 C-DSA: Your Ultimate Data Structures & Algorithms Playground! 🧠💻
+# 🚀 C++ DSA: Your Ultimate Data Structures & Algorithms Playground! 🧠💻
 
-Welcome to the C-DSA repository - your one-stop destination for mastering Data Structures and Algorithms in C++! 🎉
+Welcome to the C++ DSA repository - your one-stop destination for mastering Data Structures and Algorithms in C++! 🎉
 
 ## 📚 What's Inside?
 
@@ -24,6 +24,7 @@ This repo is a treasure trove of DSA knowledge, covering everything from basic t
 - 🎯 Problem-solving approaches explained
 - 🏋️ Regular updates with new problems and solutions
 - 👥 Open for contributions - learn together!
+- 🧾 Beautiful explanantion for hinglish explanations for hindi speakers
 
 ## 🚀 Getting Started
 
