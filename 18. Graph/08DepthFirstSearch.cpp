@@ -155,81 +155,97 @@ However, the recursive approach (the one in your prompt) has some advantages too
 
 
 /*
-Iss function ka naam hai DFS aur yeh graph ko Depth First Search (DFS) algorithm se traverse karta hai.
+Iss function ka naam hai DFS aur yeh function depth-first search traversal karta hai ek graph ka.
 
 - Function ka logic:
-  1. `DFS` function ko adjacency list aur vertices count diya jata hai.
-  2. `DFS` function sabhi vertices ke liye check karta hai aur agar vertex visited nahi hai toh `DFSUtil` ko call karta hai.
-  3. `DFSUtil` function current vertex ko visit karta hai aur recursively sabhi adjacent vertices ko visit karta hai jo visited nahi hai.
+  1. DFS function har vertex ke liye check karta hai agar woh visited nahi hai to DFSUtil ko call karta hai.
+  2. DFSUtil function vertex ko visit karta hai aur uske saare adjacent vertices ko recursively visit karta hai agar woh visited nahi hain.
 
 Process:
-- Pehle, `DFS` function ek visited array create karta hai aur usse false se initialize karta hai.
-- Uske baad, har vertex ke liye check karta hai agar woh visited nahi hai toh `DFSUtil` call karta hai.
-- `DFSUtil` function current vertex ko visit karta hai aur uske sabhi adjacent vertices ko recursively visit karta hai.
+- Pehle, DFS function ek visited vector banata hai jo initially false hota hai.
+- Har vertex ke liye check karta hai agar woh visited nahi hai to DFSUtil ko call karta hai.
+- DFSUtil function vertex ko visit karta hai aur uske saare adjacent vertices ko recursively visit karta hai agar woh visited nahi hain.
 
 Example:
-- Agar graph ka example hai:
-
-0 -- 1
-| \  |
-|  \ |
-2   3
-|   | \
-6 -- 8 9
-| / | / 
-4 -- 7
-    |
-    5
+- Agar yeh graph hai:
+  0 - 1 - 4
+  | \ |   |
+  2 - 5 - 6
+  |   |
+  3   7
 
 then
+adjacency list representation:
+0: 1 2 3
+1: 0 4 5
+2: 0 6 7
+3: 0
+4: 1 6
+5: 1 7
+6: 2 4
+7: 2 5
 
-Adjacency List Representation:
-0: 1 2 3 
-1: 0 4 5 
-2: 0 6 7 
-3: 0 8 9 
-4: 1 6 
-5: 1 7 
-6: 2 4 8 
-7: 2 5 9 
-8: 3 6 
-9: 3 7 
+then 
+- DFS starting from vertex 0:
 
-- `DFS` function ko call karte hai jo har vertex ko visit karta hai aur result print karta hai.
+Three Iterations:
+- Iteration 1:
+  Stack: [0]
+  Output: 0
+  Stack after processing 0: [1, 2, 3]
+
+- Iteration 2:
+  Stack: [1, 2, 3]
+  Output: 0 1
+  Stack after processing 1: [2, 3, 4, 5]
+
+- Iteration 3:
+  Stack: [2, 3, 4, 5]
+  Output: 0 1 4
+  Stack after processing 4: [2, 3, 5, 6]
 
 Dry Run:
 1. Initial setup and input:
-    - Visited array: [false, false, false, false, false, false, false, false, false, false]
-    - Adjacency list: [ [1, 2, 3], [0, 4, 5], [0, 6, 7], [0, 8, 9], [1, 6], [1, 7], [2, 4, 8], [2, 5, 9], [3, 6], [3, 7] ]
+   - size = 10
+   - adj = [[1, 2, 3], [0, 4, 5], [0, 6, 7], [0], [1, 6], [1, 7], [2, 4], [2, 5], [], []]
 
-2. Step-by-step execution:
-    - `DFS` starts from vertex 0:
-        - `DFSUtil(0)` -> visit 0 -> [true, false, false, false, false, false, false, false, false, false]
-            - visit 1 -> `DFSUtil(1)` -> [true, true, false, false, false, false, false, false, false, false]
-                - visit 4 -> `DFSUtil(4)` -> [true, true, false, false, true, false, false, false, false, false]
-                    - visit 6 -> `DFSUtil(6)` -> [true, true, false, false, true, false, true, false, false, false]
-                        - visit 8 -> `DFSUtil(8)` -> [true, true, false, false, true, false, true, false, true, false]
-                        - return to 6
-                    - return to 4
-                - visit 5 -> `DFSUtil(5)` -> [true, true, false, false, true, true, true, false, true, false]
-                    - visit 7 -> `DFSUtil(7)` -> [true, true, false, false, true, true, true, true, true, false]
-                        - visit 9 -> `DFSUtil(9)` -> [true, true, false, false, true, true, true, true, true, true]
-                        - return to 7
-                    - return to 5
-                - return to 1
-            - return to 0
-            - visit 2 -> `DFSUtil(2)` -> [true, true, true, false, true, true, true, true, true, true]
-                - visit 6 already visited
-                - visit 7 already visited
-            - return to 2
-            - visit 3 -> `DFSUtil(3)` -> [true, true, true, true, true, true, true, true, true, true]
-                - visit 8 already visited
-                - visit 9 already visited
-            - return to 3
+2. Step-by-step execution with intermediate values:
+   - visited = [false, false, false, false, false, false, false, false, false, false]
+   - Call DFSUtil for vertex 0:
+     - visited = [true, false, false, false, false, false, false, false, false, false]
+     - Output: 0
+     - Process adjacent vertices 1, 2, 3
+     - Call DFSUtil for vertex 1:
+       - visited = [true, true, false, false, false, false, false, false, false, false]
+       - Output: 0 1
+       - Process adjacent vertices 0, 4, 5
+       - Call DFSUtil for vertex 4:
+         - visited = [true, true, false, false, true, false, false, false, false, false]
+         - Output: 0 1 4
+         - Process adjacent vertices 1, 6
+         - Call DFSUtil for vertex 6:
+           - visited = [true, true, false, false, true, false, true, false, false, false]
+           - Output: 0 1 4 6
+           - Process adjacent vertices 2, 4
+           - Call DFSUtil for vertex 2:
+             - visited = [true, true, true, false, true, false, true, false, false, false]
+             - Output: 0 1 4 6 2
+             - Process adjacent vertices 0, 6, 7
+             - Call DFSUtil for vertex 7:
+               - visited = [true, true, true, false, true, false, true, true, false, false]
+               - Output: 0 1 4 6 2 7
+               - Process adjacent vertices 2, 5
+               - Call DFSUtil for vertex 5:
+                 - visited = [true, true, true, false, true, true, true, true, false, false]
+                 - Output: 0 1 4 6 2 7 5
+                 - Process adjacent vertices 1, 7
+                 - Call DFSUtil for vertex 3:
+                   - visited = [true, true, true, true, true, true, true, true, false, false]
+                   - Output: 0 1 4 6 2 7 5 3
 
 3. Final output:
-    - DFS traversal starting from vertex 0: 0 1 4 6 8 5 7 9 2 3
+   - 0 1 4 6 2 7 5 3
 
 Output:
-DFS traversal starting from vertex 0: 0 1 4 6 8 5 7 9 2 3
+0 1 4 6 2 7 5 3
 */
