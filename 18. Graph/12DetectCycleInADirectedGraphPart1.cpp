@@ -80,66 +80,85 @@ int main() {
 
 
 /*
-Iss function ka naam hai isCyclicKahn aur yeh graph mein cycle ko detect karta hai using Kahn's Algorithm for Topological Sorting.
+Iss function ka naam hai isCyclic aur yeh function graph mein cycle detect karta hai using Depth-First Search (DFS) algorithm.
 
 - Function ka logic:
-  1. Pehle har node ka in-degree calculate kiya jata hai, jo ki incoming edges ka count hota hai.
-  2. Phir in-degree 0 wale nodes ko ek queue mein push kiya jata hai.
-  3. Queue se nodes ko nikaal kar unke neighbors ke in-degree ko decrease kiya jata hai.
-  4. Agar kisi neighbor ka in-degree 0 ho jata hai, toh usse queue mein push kiya jata hai.
-  5. Yeh process tab tak repeat hota hai jab tak queue empty nahi ho jati.
-  6. Agar processed nodes ka count graph ke nodes ke count ke barabar nahi hai, toh graph mein cycle hai.
+  1. DFSUtil function recursively call karta hai nodes ko aur check karta hai agar koi node dobara visit ho rahi hai.
+  2. Agar koi node dobara visit hoti hai aur woh parent node nahi hai, toh cycle exist karti hai.
+  3. isCyclic function har node ke liye DFSUtil call karta hai agar woh visited nahi hai.
 
 Process:
-- Pehle, in-degree array create karke har node ka in-degree calculate kiya jata hai.
-- Phir in-degree 0 wale nodes ko queue mein push kiya jata hai.
-- Queue se nodes ko nikaal kar unke neighbors ke in-degree ko decrease kiya jata hai aur agar in-degree 0 ho jata hai toh queue mein push kiya jata hai.
-- Agar processed nodes ka count graph ke nodes ke count ke barabar nahi hai, toh graph mein cycle hai.
+- Pehle, visited vector initialize hota hai.
+- Har node ke liye DFSUtil call hota hai agar woh visited nahi hai.
+- DFSUtil function recursively nodes ko visit karta hai aur cycle check karta hai.
 
 Example:
-- Agar graph ka example hai:
-
-0 -> 1 -> 4 -> 6
-|    |    |  
-2 -> 3 -> 5 
-     |    |   
-     7 -> 8 -> 9
+- Agar yeh graph hai:
+  0 - 1 - 5
+  |   |   |
+  2 - 6 - 7
+  |       |
+  3 - 4 - 8
 
 then
+adjacency list representation:
+0: 1 2 3 4
+1: 0 5 6
+2: 0 7 8
+3: 0
+4: 0
+5: 1 6 7
+6: 1 5 8
+7: 2 5 8
+8: 2 6 7
 
-Adjacency List Representation:
-0: 1 2 3 
-1: 4 5 
-2: 6 7 
-3: 8 
-4: 6 
-5: 7 
-6: 8 
-7: 9 
+then
+- Cycle detection using DFS:
 
-- `isCyclicKahn` function ko call karte hai jo graph mein cycle detect karta hai aur result print karta hai.
+Three Iterations:
+- Iteration 1:
+  Stack: [0]
+  Output: 0
+  visited = [true, false, false, false, false, false, false, false, false]
+  Stack after processing 0: [1, 2, 3, 4]
+  visited = [true, true, true, true, true, false, false, false, false]
+
+- Iteration 2:
+  Stack: [1, 2, 3, 4]
+  Output: 0 1
+  Stack after processing 1: [2, 3, 4, 5, 6]
+  visited = [true, true, true, true, true, true, true, false, false]
+
+- Iteration 3:
+  Stack: [2, 3, 4, 5, 6]
+  Output: 0 1 2
+  Stack after processing 2: [3, 4, 5, 6, 7, 8]
+  visited = [true, true, true, true, true, true, true, true, true]
 
 Dry Run:
 1. Initial setup and input:
-    - Size: 10
-    - Adjacency list: [ [1, 2, 3], [4, 5], [6, 7], [8], [6], [7], [8], [9], [], [] ]
-    - In-degree array: [0, 1, 1, 1, 1, 1, 2, 2, 2, 1]
-    - Start node: Nodes with in-degree 0 -> 0
+   - size = 21
+   - adj = [[1, 2, 3, 4], [0, 5, 6], [0, 7, 8], [0], [0], [1, 6, 7], [1, 5, 8], [2, 5, 8], [2, 6, 7], [3, 10, 11], [3], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12]]
+   - visited = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 
-2. Step-by-step execution:
-    - Start from node 0 -> in-degree array: [0, 0, 0, 0, 0, 1, 1, 2, 2, 1] -> queue: [1, 2, 3]
-    - Process node 1 -> in-degree array: [0, 0, 0, 0, 0, 0, 1, 2, 2, 1] -> queue: [2, 3, 4]
-    - Process node 2 -> in-degree array: [0, 0, 0, 0, 0, 0, 0, 2, 2, 1] -> queue: [3, 4, 5, 6]
-    - Process node 3 -> in-degree array: [0, 0, 0, 0, 0, 0, 0, 2, 1, 1] -> queue: [4, 5, 6, 8]
-    - Process node 4 -> in-degree array: [0, 0, 0, 0, 0, 0, 0, 2, 0, 1] -> queue: [5, 6, 8, 9]
-    - Process node 5 -> in-degree array: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1] -> queue: [6, 8, 9]
-    - Process node 6 -> in-degree array: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0] -> queue: [8, 9]
-    - Process node 8 -> in-degree array: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0] -> queue: [9]
-    - Process node 9 -> in-degree array: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0] -> queue: []
+2. Step-by-step execution with intermediate values:
+   - Call DFSUtil for node 0:
+     - visited = [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+     - Visit node 1:
+       - visited = [true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+       - Visit node 5:
+         - visited = [true, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+         - Visit node 7:
+           - visited = [true, true, false, false, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false]
+           - Visit node 8:
+             - visited = [true, true, false, false, false, true, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false]
+             - Visit node 2 (Cycle detected, as it was already visited and not parent)
+             - Return true
 
 3. Final output:
-    - Graph doesn't contain cycle
+   - Graph contains cycle
 
 Output:
-Graph doesn't contain cycle
+Graph contains cycle
 */
+
