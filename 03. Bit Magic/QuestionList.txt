@@ -1,0 +1,8 @@
+01BitwiseOperatorsinCPP(Part1)
+02BitwiseOperatorsinCPP(Part2)
+03CheckKthbitissetornot
+04Countsetbits
+05PowerofTwo
+06OneOddOccurring
+07TwoOddOccurring
+08PowerSetusingBitwise

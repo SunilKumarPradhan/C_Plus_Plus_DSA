@@ -1,19 +1,17 @@
-00. Classroom
-00. Overview
-00. Theory
-02. Applications of Recursion-studyfever
-03. Recursion Output Practice - Part 1-studyfever
-04. Recursion Output Practice - Part 2-studyfever
-05. Print N to 1 Using Recursion-studyfever
-06. Print 1 to N Using Recursion-studyfever
-07. Tail Recursion-studyfever
-08. Writing Base Cases in Recursion-studyfever
-09. Natural Number Sum using Recursion-studyfever
-10. Palindrome Check using Recursion-studyfever
-11. Sum of Digits Using Recursion-studyfever
-12. Rope Cutting Problem-studyfever
-13. Generate Subsets-studyfever
-14. Tower of Hanoi-studyfever
-15. Josephus Problem-studyfever
-16. Subset Sum Problem (Recursive Solution)-studyfever
-17. Printing all Permutations-studyfever
+
+02ApplicationsofRecursion
+03RecursionOutputPractice-Part1
+04RecursionOutputPractice-Part2
+05PrintNto1UsingRecursion
+06Print1toNUsingRecursion
+07TailRecursion
+08WritingBaseCasesinRecursion
+09NaturalNumberSumusingRecursion
+10PalindromeCheckusingRecursion
+11SumofDigitsUsingRecursion
+12RopeCuttingProblem
+13GenerateSubsets
+14TowerofHanoi
+15JosephusProblem
+16SubsetSumProblem(RecursiveSolution)
+17PrintingallPermutations

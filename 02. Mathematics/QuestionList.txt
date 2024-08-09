@@ -1,0 +1,13 @@
+
+01Mathematics
+02CountDigits
+03PalindromeNumbers
+04FactorialofaNumber
+05TrailingZerosinFactorial
+06GCDorHCFoftwoNumbers
+08CheckforPrime
+09PrimeFactors
+10AllDivisorsofaNumber
+11SieveofEratosthenes
+12ComputingPower
+13IterativePower
