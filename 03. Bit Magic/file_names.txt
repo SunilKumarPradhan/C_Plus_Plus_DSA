@@ -1,0 +1,14 @@
+00. Classroom
+00. Overview
+00. Theory
+01. Bitwise Operators in CPP (Part 1)-studyfever
+02. Bitwise Operators in CPP (Part 2)-studyfever
+03. Bitwise Operators in Java (Part 1)-[NOT REQUIRED]
+04. Bitwise Operators in Java (Part 2)-[NOT REQUIRED]
+05. Bitwise Operators in Java (Part 3)-[NOT REQUIRED]
+06. Check Kth bit is set or not-studyfever
+07. Count set bits-studyfever
+08. Power of Two-studyfever
+09. One Odd Occurring-studyfever
+10. Two Odd Occurring-studyfever
+11. Power Set using Bitwise-studyfever

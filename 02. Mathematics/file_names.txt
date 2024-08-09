@@ -1,0 +1,15 @@
+00 Overview
+00. Classroom
+00. Theory
+01. Mathematics-studyfever
+02. Count Digits-studyfever
+03. Palindrome Numbers-studyfever
+04. Factorial of a Number-studyfever
+05. Trailing Zeros in Factorial-studyfever
+06. GCD or HCF of two Numbers-studyfever
+08. Check for Prime-studyfever
+09. Prime Factors-studyfever
+10. All Divisors of a Number-studyfever
+11. Sieve of Eratosthenes-studyfever
+12. Computing Power-studyfever
+13. Iterative Power-studyfever

@@ -20,8 +20,8 @@ def list_files_without_extension(folder_path, output_file):
     print(f"File names without extensions have been written to {output_file}")
 
 # Specify the folder path and output file name
-k = r'E:\[GeeksForGeeks] Data Structures and Algorithms (Self-Paced Course)\01. Introduction [DONE]'  # Replace with your folder path
-y = r'C:\Users\sunil\Desktop\GFG\01. Introduction\file_names.txt'  # Replace with your output file path
+k = r'E:\[GeeksForGeeks] Data Structures and Algorithms (Self-Paced Course)\04. Recursion [DONE]'  # Replace with your folder path
+y = r'C:\Users\sunil\Desktop\GFG\04. Recursion\file_names.txt'  # Replace with your output file path
 
 # Call the function
 list_files_without_extension(k, y)
