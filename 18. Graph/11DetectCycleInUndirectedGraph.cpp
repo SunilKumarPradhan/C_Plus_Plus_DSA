@@ -22,14 +22,140 @@ bool DFSUtil(int v, vector<int> adj[], vector<bool> &visited, int parent) {
 
 bool isCyclic(vector<int> adj[], int size) {
     vector<bool> visited(size, false);
-    for (int u = 0; u < size; u++) {
-        if (!visited[u]) {
-            if (DFSUtil(u, adj, visited, -1))
+
+    for (int i = 0; i < size; i++) {
+        if (!visited[i]) {
+            if (DFSUtil(i, adj, visited, -1))
                 return true;
         }
     }
     return false;
 }
+
+/*
+Explanation in Hinglish:
+
+Iss function ka naam hai DFSUtil aur yeh depth-first search (DFS) algorithm use karta hai cycle detect karne ke liye graph mein.
+
+- Function ka logic:
+  1. visited[v] = true: Yeh line current node ko visited mark kar deti hai.
+  2. for (int i : adj[v]): Yeh loop current node ke sabhi neighbors ko iterate karta hai.
+  3. if (!visited[i]): Agar neighbor node visited nahi hai, toh DFSUtil function ko recursively call kiya jata hai.
+  4. if (DFSUtil(i, adj, visited, v)): Agar recursive call cycle detect karti hai, toh function true return karta hai.
+  5. else if (i != parent): Agar neighbor node visited hai aur yeh parent node nahi hai, toh cycle detected hai aur function true return karta hai.
+  6. return false: Agar koi cycle detect nahi hoti, toh function false return karta hai.
+
+Process:
+- Pehle, current node ko visited mark karte hain.
+- Uske baad, sabhi neighbors ko check karte hain.
+- Agar neighbor node visited nahi hai, toh recursively call karte hain.
+- Agar neighbor node visited hai aur parent node nahi hai, toh cycle detected hoti hai.
+- Agar koi cycle nahi milti, toh function false return karta hai.
+
+Example:
+- Agar graph hai:
+
+  0 - 1
+  |   |
+  2 - 3
+
+- DFSUtil function 0 se start karta hai, aur neighbors 1 aur 2 ko check karta hai.
+- 1 aur 2 ko recursively check karta hai, aur cycle detect karta hai (0-1-3-2-0).
+
+Dry Run:
+1. Initial setup:
+   - Graph: 0 - 1, 0 - 2, 1 - 3, 2 - 3
+   - visited array: [false, false, false, false]
+   - parent: -1 (initially)
+2. Process node 0:
+   - visited[0] = true
+   - Check neighbors 1 aur 2
+3. Process node 1 (neighbor of 0):
+   - visited[1] = true
+   - Check neighbors 0 aur 3
+   - Skip 0 (parent node)
+4. Process node 3 (neighbor of 1):
+   - visited[3] = true
+   - Check neighbors 1 aur 2
+   - Skip 1 (parent node)
+5. Process node 2 (neighbor of 3):
+   - visited[2] = true
+   - Check neighbors 0 aur 3
+   - Cycle detected with 0, 1, 3, 2, 0
+6. Output:
+   - true (cycle detected)
+
+Output:
+true (agar cycle detected ho)
+false (agar cycle na ho)
+*/
+
+bool DFSUtil(int v, vector<int> adj[], vector<bool> &visited, int parent) {
+    visited[v] = true;
+    for (int i : adj[v]) {
+        if (!visited[i]) {
+            if (DFSUtil(i, adj, visited, v))
+                return true;
+        } else if (i != parent) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/*
+Iss function ka naam hai isCyclic aur yeh graph mein cycle detect karta hai.
+
+- Function ka logic:
+  1. visited array initialize karta hai with false values.
+  2. Sabhi nodes ko iterate karta hai aur agar node visited nahi hai, toh DFSUtil function ko call karta hai.
+  3. Agar DFSUtil function true return karta hai, toh cycle detected hai aur isCyclic function true return karta hai.
+  4. Agar koi cycle detect nahi hoti, toh isCyclic function false return karta hai.
+
+Process:
+- Pehle, visited array initialize karte hain.
+- Har node ko check karte hain agar visited nahi hai.
+- DFSUtil function ko call karte hain aur result check karte hain.
+- Agar cycle detected hoti hai, toh true return karte hain.
+- Agar cycle detect nahi hoti, toh false return karte hain.
+
+Example:
+- Agar graph hai:
+
+  0 - 1
+  |   |
+  2 - 3
+
+- isCyclic function 0 se start karta hai, aur DFSUtil function ko call karta hai.
+- DFSUtil function cycle detect karta hai (0-1-3-2-0) aur true return karta hai.
+
+Dry Run:
+1. Initial setup:
+   - Graph: 0 - 1, 0 - 2, 1 - 3, 2 - 3
+   - visited array: [false, false, false, false]
+2. Process node 0:
+   - visited[0] = true
+   - Call DFSUtil(0, adj, visited, -1)
+3. DFSUtil function detects cycle
+4. isCyclic function returns true
+
+Output:
+true (agar cycle detected ho)
+false (agar cycle na ho)
+*/
+
+bool isCyclic(vector<int> adj[], int size) {
+    vector<bool> visited(size, false);
+    
+    for (int i = 0; i < size; i++) {
+        if (!visited[i]) {
+            if (DFSUtil(i, adj, visited, -1))
+                return true;
+        }
+    }
+    return false;
+}
+
 
 int main() {
     int size = 21;  // Increased size to accommodate more nodes

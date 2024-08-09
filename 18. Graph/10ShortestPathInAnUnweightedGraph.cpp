@@ -19,6 +19,32 @@ void shortestPath(vector<int> adj[], int size, int src) {
             }
         }
     }
+/*
+Explanation:
+
+for (auto neighbor : adj[node]):
+
+- Yeh loop current node ke sabhi neighbors ko iterate karta hai.
+- adj[node] adjacency list ka woh part hai jo current node se connected nodes (neighbors) ko represent karta hai.
+- auto neighbor har iteration mein ek neighbor node ko represent karta hai.
+
+if (dist[neighbor] == INT_MAX):
+
+- Yeh condition check karti hai ki current neighbor node ki distance ab tak calculate hui hai ya nahi.
+- Agar dist[neighbor] INT_MAX hai, iska matlab hai ki is neighbor tak ab tak koi path discover nahi hua hai.
+- INT_MAX ko use karte hain kyunki initially sabhi nodes ki distance infinity set karte hain.
+
+dist[neighbor] = dist[node] + 1:
+
+- Agar if condition true hoti hai, toh neighbor node ki distance update karte hain.
+- dist[node] + 1 ka matlab hai ki current node ki distance mein ek add karke neighbor node ki distance set karte hain.
+- Yeh update isliye karte hain kyunki graph mein ek edge ka weight 1 hota hai.
+
+q.push(neighbor):
+
+- Updated neighbor node ko queue mein push karte hain taaki uske neighbors ko bhi process kar sakein.
+- Yeh step ensure karta hai ki BFS algorithm correct order mein sab nodes ko process kare.
+*/
 
     cout << "Shortest distances from source " << src << ":\n";
     for (int i = 0; i < size; ++i) {
@@ -53,8 +79,8 @@ int main() {
     cout << "Adjacency List Representation:"<<endl;
     for (int i = 0; i < size; ++i) {
         cout << i << ": ";
-        for (auto j : adj[i])
-            cout << j << " ";
+        for (auto neighbour : adj[i])
+            cout << neighbour << " ";
         cout << endl;
     }
 
