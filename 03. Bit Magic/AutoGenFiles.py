@@ -10,13 +10,13 @@ int main() {
 """
 
 # Read the filenames from the text file
-with open(r'C:\Users\sunil\Desktop\GFG\05. Arrays\00 Sliding Window Approach\QuestionList.txt', 'r') as file:
+with open(r'C:\Users\sunil\Desktop\GFG\03. Bit Magic\QuestionList.txt', 'r') as file:
     filenames = file.readlines()
 
 # Create .cpp files with the template
 for name in filenames:
     filename = name.strip() + '.cpp'  # Remove any leading/trailing whitespace and add .cpp extension
-    filepath = os.path.join(r'C:\Users\sunil\Desktop\GFG\05. Arrays\00 Sliding Window Approach', filename)
+    filepath = os.path.join(r'C:\Users\sunil\Desktop\GFG\03. Bit Magic', filename)
     with open(filepath, 'w') as cpp_file:
         cpp_file.write(cpp_template)
     
