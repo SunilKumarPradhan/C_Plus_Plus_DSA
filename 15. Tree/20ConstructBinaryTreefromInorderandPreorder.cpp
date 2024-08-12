@@ -13,20 +13,18 @@ struct node {
 };
 
 int preIndex = 0;
+node* MakeTree(int in[], int pre[], int Si, int Ei) {
+    if (Si > Ei) return NULL;
+    node *root = new node(pre[preIndex++]);//  pre index upar declared hai
 
-node *cTree(int in[], int pre[], int is, int ie) {
-    if (is > ie) return NULL;
-    node *root = new node(pre[preIndex++]);
-
-    int inIndex;
-    for (int i = is; i <= ie; i++) {
-        if (in[i] == root->key) {
-            inIndex = i;
-            break;
-        }
+    int inIndex = Si;
+    while (inIndex <= Ei && in[inIndex] != root->key) {
+        inIndex++;
     }
-    root->left = cTree(in, pre, is, inIndex - 1);
-    root->right = cTree(in, pre, inIndex + 1, ie);
+
+    root->left = MakeTree(in, pre, Si, inIndex - 1);
+    root->right = MakeTree(in, pre, inIndex + 1, Ei);
+    
     return root;
 }
 
@@ -40,67 +38,72 @@ void inorderPrint(node *root) {
 int main() {
     int in[] = {1, 2, 3, 4, 5};
     int pre[] = {3, 2, 1, 4, 5};
-    int len = sizeof(in)/sizeof(in[0]);
+    int size = sizeof(in) / sizeof(in[0]);
 
-    node *root = cTree(in, pre, 0, len - 1);
-
+    node *root = MakeTree(in, pre, 0, size - 1);
+    
     cout << "Inorder traversal of the constructed tree: ";
     inorderPrint(root);
 
     return 0;
 }
 
-/*
-Iss code mein ek function hai jo inorder aur preorder traversal se binary tree ko construct karta hai aur uske baad us tree ka inorder traversal print karta hai.
 
-- Function ka naam hai cTree aur yeh binary tree ko construct karta hai inorder aur preorder traversal arrays se:
-  1. Agar is (starting index) > ie (ending index), toh NULL return karte hain. Yeh base case hai.
-  2. Naya node create karte hain preorder array ke current index se aur preIndex ko increment karte hain.
-  3. Inorder array mein current node ki position (inIndex) ko find karte hain.
-  4. Left subtree aur right subtree ko recursively construct karte hain using inorder array ke segments:
-     - Left subtree: is se inIndex - 1 tak.
-     - Right subtree: inIndex + 1 se ie tak.
-  5. Root node ko return karte hain.
+/*
+Iss function ka naam hai MakeTree aur yeh function inorder aur preorder traversal arrays se ek binary tree banata hai.
+
+- Function ka logic:
+  1. `preIndex` ek global variable hai jo preorder array ke current node ka index track karta hai.
+  2. Sabse pehle, current node ko create karte hain jo preorder array se li jaati hai (`pre[preIndex]`).
+  3. Phir, us node ka position inorder array mein dhundhte hain.
+  4. Us position se left aur right subtrees ko recursively build karte hain.
 
 Process:
-- Pehle, root node create hota hai preorder array ke pehle element se.
-- Phir, inorder array mein us root node ka index find hota hai.
-- Left aur right subtrees recursively construct hote hain.
+- Pehle, root node ko preorder array se liya jata hai (pehla element) aur usse create kiya jata hai.
+- Phir, us root node ka index inorder array mein dhunda jata hai.
+- Inorder array ke us index se left aur right subtree ke liye recursive calls hoti hain.
+- In recursion, left subtree ko inorder array ke pehle part se banaya jata hai aur right subtree ko baad wale part se.
 
 Example:
 - Agar inorder array hai: [1, 2, 3, 4, 5]
 - Aur preorder array hai: [3, 2, 1, 4, 5]
 
-- cTree function call hota hai aur tree ban jata hai:
-      3
-     / \
-    2   4
-   /     \
-  1       5
+- Toh binary tree banega:
+       3
+      / \
+     2   4
+    /     \
+   1       5
 
 Dry Run:
-1. Inorder array: [1, 2, 3, 4, 5]
-   Preorder array: [3, 2, 1, 4, 5]
+1. Preorder: [3, 2, 1, 4, 5]
+   Inorder:  [1, 2, 3, 4, 5]
 
-2. cTree function call hota hai:
-   - Root = 3 (pre[0])
-   - Inorder index of 3 = 2
+2. First Call:
+   - Root node `3` (preorder[0]) se banti hai.
+   - Inorder array mein `3` ka index 2 hai.
+   - Left subtree: inorder array ka part [1, 2], preorder array se next elements [2, 1].
+   - Right subtree: inorder array ka part [4, 5], preorder array se next elements [4, 5].
 
-3. Left subtree:
-   - Inorder array: [1, 2]
-   - Preorder array: [2, 1]
+3. Recursion Left Subtree:
+   - Root node `2` se banti hai (preorder[1]).
+   - Inorder array mein `2` ka index 1 hai.
+   - Left subtree: [1], next element [1].
+   - Right subtree: [], koi element nahi.
 
-4. Right subtree:
-   - Inorder array: [4, 5]
-   - Preorder array: [4, 5]
+4. Recursion Right Subtree:
+   - Root node `4` se banti hai (preorder[3]).
+   - Inorder array mein `4` ka index 3 hai.
+   - Left subtree: [], koi element nahi.
+   - Right subtree: [5], next element [5].
 
-5. Tree ka structure:
-      3
-     / \
-    2   4
-   /     \
-  1       5
+5. Final Tree:
+       3
+      / \
+     2   4
+    /     \
+   1       5
 
-Output:
-Inorder traversal of the constructed tree: 1 2 3 4 5
+6. Inorder traversal of constructed tree: [1, 2, 3, 4, 5]
+   - Output: 1 2 3 4 5
 */

@@ -1,58 +1,48 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct node {
+struct Node {
     int key;
-    node *left;
-    node *right;
+    Node *left, *right;
 
-    node(int k) {
+    Node(int k) {
         key = k;
         left = right = NULL;
     }
 };
 
-bool findPath(node *root, vector<node*> &p, int n) {
-    if (root == NULL) return false;
+Node* findLCA(Node* root, int n1, int n2) {
+    if (root == NULL) return NULL;
+    if (root->key == n1 || root->key == n2) return root;
 
-    p.push_back(root);
+    Node* leftLCA = findLCA(root->left, n1, n2);
+    Node* rightLCA = findLCA(root->right, n1, n2);
 
-    if (root->key == n) return true;
-
-    if (findPath(root->left, p, n) || findPath(root->right, p, n)) return true;
-
-    p.pop_back();  // Correctly use pop_back to remove the last element
-    return false;
-}
-
-node* LCAofBinTree(node *root, int n1, int n2) {
-    vector<node*> path1, path2; // Create two vectors
-
-    if (findPath(root, path1, n1) == false || findPath(root, path2, n2) == false) return NULL;
-
-    int i;
-    for (i = 0; i < path1.size() && i < path2.size(); i++) {
-        if (path1[i] != path2[i]) break;
-    }
-    return path1[i-1];
+    if (leftLCA != NULL && rightLCA != NULL) return root;
+    return (leftLCA != NULL) ? leftLCA : rightLCA;
 }
 
 int main() {
-    node *root = new node(3);
-    root->left = new node(2);
-    root->right = new node(4);
-    root->right->right = new node(5);
-    root->left->left = new node(1);
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
+    root->right->right->right = new Node(8);
 
-    int n1 = 1, n2 = 5; // Example nodes to find LCA
-    node* lca = LCAofBinTree(root, n1, n2);
-    if (lca != NULL)
-        cout << "LCA of " << n1 << " and " << n2 << " is " << lca->key << endl;
-    else
-        cout << "LCA does not exist" << endl;
+    Node* lca = findLCA(root, 5, 4);
+    if (lca != NULL) {
+        cout << "LCA of 5 and 4 is " << lca->key << endl;
+    } else {
+        cout << "Keys are not present in the tree" << endl;
+    }
 
+    cout<<()<<endl;
     return 0;
 }
+
 
 
 /*
@@ -102,3 +92,14 @@ Dry Run:
 Output:
 LCA of 1 and 5 is 3
 */
+
+node* findLCA(node* root , int n1 , int n2){
+    if(root==NULL) return ;
+    if(root->key==n1 || root->key==n2 ) return root;
+
+    node* leftLCA= findLCA(root->left, n1,n2);
+    node* rightLCA= findLCA(root->right,n1,n2);
+
+    if(leftLCA == NULL && rightLCA == NULL) return root;
+    return (leftLCA != NULL) ?  leftLCA : rightLCA;
+}

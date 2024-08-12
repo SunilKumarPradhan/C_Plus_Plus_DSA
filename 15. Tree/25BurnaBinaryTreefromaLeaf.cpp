@@ -12,6 +12,8 @@ struct node {
   }
 };
 
+
+
 bool burnTree(node* root) {
   if (root == nullptr) {
     return false;

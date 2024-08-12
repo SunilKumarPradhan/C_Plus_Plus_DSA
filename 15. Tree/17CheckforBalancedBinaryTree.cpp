@@ -22,6 +22,7 @@ int isBalanced(node *root) {
     if (rh == -1) return -1;
 
     if (abs(lh - rh) > 1) return -1;
+
     else return max(lh, rh) + 1;
 }
 

@@ -12,33 +12,56 @@ struct node {
     }
 };
 
-// Function to print the level order traversal of the tree, line by line
-void printLevelOrderLinebyLine(node *root) {
-    if (root == NULL) return;
+// void printLevelOrderLinebyLine(node *root) {
+//     if (root == NULL) return;
 
-    queue<node *> q;
-    q.push(root);
-    q.push(NULL); // Marker for the end of the current level
+//     queue<node *> q;
+//     q.push(root);
+//     q.push(NULL); // Marker for the end of the current level
 
-    while (q.size() > 1) { // Continue until only the marker remains
-        node *curr = q.front();
-        q.pop();
+//     while (q.size() > 1) { // Continue until only the marker remains
+//         node *curr = q.front();
+//         q.pop();
 
-        if (curr == NULL) {
-            cout << "\n"; // Print a newline after each level
-            q.push(NULL); // Add a new marker for the next level
-            continue;
-        }
+//         if (curr == NULL) {
+//             cout << "\n"; // Print a newline after each level
+//             q.push(NULL); // Add a new marker for the next level
+//             continue;
+//         }
 
-        cout << curr->key << " "; // Print the current node's key
+//         cout << curr->key << " "; 
 
-        if (curr->left != NULL)
-            q.push(curr->left); // Add left child to the queue if exists
-        if (curr->right != NULL)
-            q.push(curr->right); // Add right child to the queue if exists
-    }
-    cout << endl; // Print a newline after the last level
-}
+//         if (curr->left) q.push(curr->left); 
+//         if (curr->right) q.push(curr->right); 
+//     }
+//     cout << endl; // Print a newline after the last level
+// }
+
+
+void printLevelOrderLinebyLine(node *root) { 
+    if (root == NULL) return; 
+
+    queue<node*> q; 
+    q.push(root); 
+ 
+    while (!q.empty()) { 
+        int nodeCount = q.size(); 
+
+        while (nodeCount > 0) { 
+            node *curr = q.front(); 
+            q.pop(); 
+            cout << curr->key << " "; 
+ 
+            if (curr->left != NULL) q.push(curr->left); 
+            if (curr->right != NULL) q.push(curr->right); 
+ 
+            nodeCount--; 
+        } 
+        cout << endl; 
+    } 
+} 
+
+
 
 int main() {
     node *root = new node(3);

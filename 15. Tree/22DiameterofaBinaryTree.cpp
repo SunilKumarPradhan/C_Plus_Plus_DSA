@@ -1,3 +1,39 @@
+#include <bits/stdc++.h> 
+using namespace std;
+
+struct node {
+    int key;
+    node *left, *right;
+    node(int k) : key(k), left(NULL), right(NULL) {}
+};
+
+int height(node* root, int& diameter) {
+    if (!root) return 0;
+    int lh = height(root->left, diameter);
+    int rh = height(root->right, diameter);
+    
+    diameter = max(diameter, lh + rh);
+    return 1 + max(lh, rh);
+}
+
+int diameterOfBinaryTree(node* root) {
+    int diameter = 0;
+    height(root, diameter);
+    return diameter;
+}
+
+int main() {
+    node *root = new node(10);
+    root->left = new node(20);
+    root->right = new node(30);
+    root->left->left = new node(45);
+    root->left->right = new node(25);
+    root->right->right = new node(35);
+
+    cout << "Diameter: " << diameterOfBinaryTree(root) << endl;
+    return 0; 
+}
+
 
 /*
 Iss function ka naam hai height aur yeh tree ka height return karta hai aur saath hi saath tree ka diameter calculate karta hai.

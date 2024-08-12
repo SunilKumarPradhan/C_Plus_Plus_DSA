@@ -14,12 +14,12 @@ struct node {
 
 
 int getHeight(node* root) {
-  if (root == nullptr) return 0;
+  if (root == NULL) return 0;
   return 1 + getHeight(root->left);
 }
 
 int countNodes(node* root) {
-    if (root == nullptr) return 0;
+    if (root == NULL) return 0;
 
     int height = getHeight(root);
     if (getHeight(root->left) == height - 1)return (1 << height) - 1;

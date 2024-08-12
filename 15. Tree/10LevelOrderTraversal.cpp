@@ -13,9 +13,6 @@ struct node {
 };
 
 void printLevelOrder(node *root) {
-    ios::sync_with_stdio(false);
-    cin.tie(0);cout.tie(0);
-
     if (root == NULL) return;
 
     queue<node *> q;
@@ -26,11 +23,8 @@ void printLevelOrder(node *root) {
         q.pop();
 
         cout << curr->key << " ";
-
-        if (curr->left)
-            q.push(curr->left);
-        if (curr->right)
-            q.push(curr->right);
+        if (curr->left) q.push(curr->left);
+        if (curr->right) q.push(curr->right);
     }
 }
 
@@ -42,7 +36,7 @@ int main() {
     root->right->right = new node(5);
     root->left->left = new node(1);
 
-    cout << "PostOrder Traversal : "<<endl;
+    cout << "Level Order Traversal : "<<endl;
 
     printLevelOrder(root);
 
