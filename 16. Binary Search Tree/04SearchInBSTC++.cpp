@@ -25,11 +25,17 @@ bool itSearch(node* root, int key) {
     while (root != NULL) {
         if (root->key == key) return true;
 
-        if (key < root->key) root = root->left;
+        if (root->key > key) root = root->left;
         else root = root->right;
     }
     return false;
 }
+
+bool
+
+
+
+
 
 int main() {
     node* root = new node(50);
