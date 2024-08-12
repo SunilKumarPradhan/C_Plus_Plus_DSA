@@ -11,7 +11,6 @@ struct node {
     }
 };
 
-// Function to perform inorder traversal of the BST
 void inorder(node* root) {
     if (root != NULL) {
         inorder(root->left);
@@ -20,29 +19,34 @@ void inorder(node* root) {
     }
 }
 
-// Function to find the minimum value node in a BST
+
 node* findMin(node* root) {
     while (root->left != NULL) root = root->left;
     return root;
 }
 
-// Function to delete a node from the BST
+
 node* deleteNode(node* root, int key) {
     if (root == NULL) return root;
     if (key < root->key) root->left = deleteNode(root->left, key);
     else if (key > root->key) root->right = deleteNode(root->right, key);
+    
     else {
         // Node with only one child or no child
         if (root->left == NULL) {
             node* temp = root->right;
             delete root;
             return temp;
-        } else if (root->right == NULL) {
+        } 
+        
+        else if (root->right == NULL) {
             node* temp = root->left;
             delete root;
             return temp;
         }
-        // Node with two children: Get the inorder successor
+
+
+        // Node with two children: Get the inorder successor(right subtree ka smallest value)
         node* temp = findMin(root->right);
         root->key = temp->key;
         root->right = deleteNode(root->right, temp->key);

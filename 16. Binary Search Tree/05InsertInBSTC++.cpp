@@ -11,18 +11,16 @@ struct node {
     }
 };
 
-// Recursive insertion function
-node* recursiveInsert(node* root, int key) {
-    if (root == NULL) return new node(key);
 
-    if (key < root->key) 
-        root->left = recursiveInsert(root->left, key);
-    else if (key > root->key) 
-        root->right = recursiveInsert(root->right, key);
+node* recursiveInsert(node* root , int key){
+    if(root==NULL) return new node (key);
+
+    if(root->key > key) root->left = recursiveInsert(root->left , key);
+    else root->right = recursiveInsert(root->right , key);
+
     return root;
 }
 
-// Iterative insertion function
 node* iterativeInsert(node* root, int key) {
     node* newNode = new node(key);
     if (root == NULL) return newNode;

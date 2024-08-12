@@ -31,11 +31,6 @@ bool itSearch(node* root, int key) {
     return false;
 }
 
-bool
-
-
-
-
 
 int main() {
     node* root = new node(50);
