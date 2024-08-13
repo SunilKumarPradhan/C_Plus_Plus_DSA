@@ -28,8 +28,8 @@ node* findMin(node* root) {
 
 node* deleteNode(node* root, int key) {
     if (root == NULL) return root;
-    if (key < root->key) root->left = deleteNode(root->left, key);
-    else if (key > root->key) root->right = deleteNode(root->right, key);
+    if (root->key > key  ) root->left = deleteNode(root->left, key);
+    else if (root->key < key) root->right = deleteNode(root->right, key);
     
     else {
         // Node with only one child or no child
