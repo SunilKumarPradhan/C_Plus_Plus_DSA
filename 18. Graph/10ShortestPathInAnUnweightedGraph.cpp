@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void addEdge(vector<int> adj[], int u, int v) {
+    adj[u].push_back(v);
+    adj[v].push_back(u);  
+}
+
 void shortestPath(vector<int> adj[], int size, int src) {
     vector<int> dist(size, INT_MAX);
     queue<int> q;
@@ -9,16 +14,52 @@ void shortestPath(vector<int> adj[], int size, int src) {
     q.push(src);
 
     while (!q.empty()) {
-        int node = q.front();
+        int curr = q.front();
         q.pop();
 
-        for (auto neighbor : adj[node]) {
-            if (dist[neighbor] == INT_MAX) {
-                dist[neighbor] = dist[node] + 1;
-                q.push(neighbor);
+        for (auto i : adj[curr]) {
+            if (dist[i] == INT_MAX) {
+                dist[i] = dist[curr] + 1;
+                q.push(i);
             }
         }
     }
+
+    cout << "Shortest distances from source " << src << ":\n";
+    for (int i = 0; i < size; ++i) {
+        cout << "Node " << i << ": " << dist[i] << "\n";
+    }
+}
+
+int main() {
+    int size = 10;  
+    vector<int> adj[size];
+
+    vector<pair<int, int>> edges = {
+        {0, 1}, {0, 2}, {0, 3}, {1, 4}, {1, 5},
+        {2, 6}, {2, 7}, {3, 8}, {3, 9}, {4, 6},
+        {5, 7}, {6, 8}, {7, 9}
+    };
+
+    for (auto edge : edges) {
+        addEdge(adj, edge.first, edge.second);
+    }
+
+    cout << "Adjacency List Representation:" << endl;
+    int i = 0;
+    for (auto neighbors : adj) {
+      cout << i++ << ": ";
+        for (auto j : neighbors) cout << j << " ";
+          cout << endl;
+          
+  }
+    int src = 0; // Starting node for shortest path calculation
+    shortestPath(adj, size, src);
+
+    return 0;
+}
+
+
 /*
 Explanation:
 
@@ -45,53 +86,6 @@ q.push(neighbor):
 - Updated neighbor node ko queue mein push karte hain taaki uske neighbors ko bhi process kar sakein.
 - Yeh step ensure karta hai ki BFS algorithm correct order mein sab nodes ko process kare.
 */
-
-    cout << "Shortest distances from source " << src << ":\n";
-    for (int i = 0; i < size; ++i) {
-        cout << "Node " << i << ": " << dist[i] << "\n";
-    }
-}
-
-void addEdge(vector<int> adj[], int u, int v) {
-    adj[u].push_back(v);
-    adj[v].push_back(u);  
-}
-
-int main() {
-    int size = 10;  
-    vector<int> adj[size];
-
-    addEdge(adj, 0, 1);
-    addEdge(adj, 0, 2);
-    addEdge(adj, 0, 3);
-    addEdge(adj, 1, 4);
-    addEdge(adj, 1, 5);
-    addEdge(adj, 2, 6);
-    addEdge(adj, 2, 7);
-    addEdge(adj, 3, 8);
-    addEdge(adj, 3, 9);
-    addEdge(adj, 4, 6);
-    addEdge(adj, 5, 7);
-    addEdge(adj, 6, 8);
-    addEdge(adj, 7, 9);
-
-
-    cout << "Adjacency List Representation:"<<endl;
-    for (int i = 0; i < size; ++i) {
-        cout << i << ": ";
-        for (auto neighbour : adj[i])
-            cout << neighbour << " ";
-        cout << endl;
-    }
-
-    int src = 0; // Starting node for shortest path calculation
-    shortestPath(adj, size, src);
-
-    
-    return 0;
-}
-
-
 
 /*
 Iss function ka naam hai shortestPath aur yeh function ek graph mein given source node se sabhi nodes tak ka shortest distance find karta hai using Breadth-First Search (BFS) algorithm.

@@ -15,11 +15,11 @@ void BFS(vector<int> adj[], int start, int size) {
     q.push(start);
 
     while (!q.empty()) {
-        int vertex = q.front();
-        cout << vertex << " ";
+        int curr = q.front();
+        cout << curr << " ";
         q.pop();
 
-        for (auto i : adj[vertex]) {
+        for (auto i : adj[curr]) {
             if (!visited[i]) {
                 visited[i] = true;
                 q.push(i);

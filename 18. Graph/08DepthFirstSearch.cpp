@@ -6,44 +6,45 @@ void addEdge(vector<int> adj[], int u, int v) {
     adj[v].push_back(u);  
 }
 
-void DFSUtil(int v, vector<int> adj[], vector<bool>& visited) {
-    visited[v] = true;
-    cout << v << " ";
+void DFS(vector<int> adj[], int size, int start=0) {
+    vector<bool> visited(size, false);  
+    stack<int> s;
 
-    for (int i : adj[v]) {
-        if (!visited[i]) {
-            DFSUtil(i, adj, visited);
+    s.push(start);
+
+    while (!s.empty()) {
+        int curr = s.top();
+        s.pop();
+
+        if (!visited[curr]) {
+            cout << curr << " ";
+            visited[curr] = true;
+
+            for (int i : adj[curr]) {
+                if (!visited[i]) {
+                    s.push(i);
+                }
+            }     
         }
     }
 }
 
-void DFS(vector<int> adj[], int V) {
-    vector<bool> visited(V, false);
-
-    for (int i = 0; i < V; i++) {
-        if (!visited[i]) {
-            DFSUtil(i, adj, visited);
-        }
-    }
-}
+// always remember for loop hamesha adjacent list pe lagta hai
+// always remember if condition mein humesha visited vector check hota hai
 
 int main() {
     int size = 10;  
     vector<int> adj[size];
 
-    addEdge(adj, 0, 1);
-    addEdge(adj, 0, 2);
-    addEdge(adj, 0, 3);
-    addEdge(adj, 1, 4);
-    addEdge(adj, 1, 5);
-    addEdge(adj, 2, 6);
-    addEdge(adj, 2, 7);
-    addEdge(adj, 3, 8);
-    addEdge(adj, 3, 9);
-    addEdge(adj, 4, 6);
-    addEdge(adj, 5, 7);
-    addEdge(adj, 6, 8);
-    addEdge(adj, 7, 9);
+    vector<pair<int, int>> edges = {
+        {0, 1}, {0, 2}, {0, 3}, {1, 4}, {1, 5},
+        {2, 6}, {2, 7}, {3, 8}, {3, 9}, {4, 6},
+        {5, 7}, {6, 8}, {7, 9}
+    };
+
+    for (auto edge : edges) {
+        addEdge(adj, edge.first, edge.second);
+    }
 
     cout << "Adjacency List Representation:" << endl;
     for (int i = 0; i < size; ++i) {
@@ -55,12 +56,10 @@ int main() {
 
     cout << "\nDepth First Search starting from vertex 0:" << endl;
     DFS(adj, size);
-
     return 0;
 }
+
 /*
-
-
 Advantages of the iterative approach:
 
 - Stack safety: It avoids potential stack overflow errors that can occur with deep recursion 
