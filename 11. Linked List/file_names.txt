@@ -1,54 +1,47 @@
-00. Classroom
-00. Overview
-00. Theory
-01. Problems With Array Data Structures
-02. Introduction to Linked List
-03. Simple Linked List Implementation in C++
-04. Simple Linked List Implementation in Java
-05. Traversing a Linked List in C++
-06. Traversing a Linked List in Java
-07. Recrusive Traversal of Singly Linked List
-08. Insert at Begin of Singly Linked List
-09. Insert at the end of Singly Linked List
-10. Delete First Node of Singly Linked List
-11. Delete Last of Singly Linked List
-12. Insert at given position in Singly Linked List
-13. Search in a Linked List (Iterative and Recursive)
-14. Doubly Linked List in C++
-15. Doubly Linked List in Java
-16. Singly Vs Doubly Linked List (Advantages & Disadvantages)
-17. Insert at Begin of Doubly Linked List
-18. Insert at End Doubly Linked List
-19. Reverse a Doubly Linked List
-20. Delete Head of a Doubly Linked List
-21. Delete Last of a Doubly Linked List
-22. Circular Linked List in C++
-23. Circular Linked List in Java
-24. Circular Linked List (Advantages & Disadvantages)
-25. Circular Linked List Traversal in C++
-26. Circular Linked List Traversal in Java
-27. Insert at Begin of Circular Linked List
-28. Insert at the end of Circular Linked List
-29. Delete Head of Circular Linked List
-30. Delete Kth of a Circular Linked List
-31. Circular Doubly Linked List
-32. Sorted Insert in a Singly Linked List
-33. Middle of linked list
-34. Nth Node from end of linked list
-35. Reverse a linked list iterative
-36. Recursive reverse a linked list (Part 1)
-37. Recursive reverse a linked list (Part 2)
-38. Remove duplicates from a sorted Singly Linked List
-39. Reverse a linked list in groups of size k
-40. Detect loop
-41. Detect loop using floyd cycle detection
-42. Detect and remove loop in linked list
-43. Delete node with only pointer given to it
-44. Segregate even odd nodes of linked list
-45. Intersection of two linked list
-46. Pairwise swap nodes of linked list
-47. Clone a linked list using a random pointer
-48. LRU Cache Design
-49. Merge two sorted linked lists
-50. Palindrome Linked List
-IdeaPresentation_TrithonTriplets.pdf
+01ProblemsWithArrayDataStructures
+02IntroductiontoLinkedList
+03SimpleLinkedListImplementationinC++
+04TraversingaLinkedListinC++
+05RecrusiveTraversalofSinglyLinkedList
+06InsertatBeginofSinglyLinkedList
+07InsertattheendofSinglyLinkedList
+08DeleteFirstNodeofSinglyLinkedList
+09DeleteLastofSinglyLinkedList
+10InsertatgivenpositioninSinglyLinkedList
+11SearchinaLinkedList(IterativeandRecursive)
+12DoublyLinkedListinC++
+13SinglyVsDoublyLinkedList(Advantages&Disadvantages)
+14InsertatBeginofDoublyLinkedList
+15InsertatEndDoublyLinkedList
+16ReverseaDoublyLinkedList
+17DeleteHeadofaDoublyLinkedList
+18DeleteLastofaDoublyLinkedList
+19CircularLinkedListinC++
+20CircularLinkedList(Advantages&Disadvantages)
+21CircularLinkedListTraversalinC++
+22CircularLinkedListTraversalinJava
+23InsertatBeginofCircularLinkedList
+24InsertattheendofCircularLinkedList
+25DeleteHeadofCircularLinkedList
+26DeleteKthofaCircularLinkedList
+27CircularDoublyLinkedList
+28SortedInsertinaSinglyLinkedList
+29Middleoflinkedlist
+30NthNodefromendoflinkedlist
+31Reversealinkedlistiterative
+32Recursivereversealinkedlist(Part1)
+33Recursivereversealinkedlist(Part2)
+34RemoveduplicatesfromasortedSinglyLinkedList
+35Reversealinkedlistingroupsofsizek
+36Detectloop
+37Detectloopusingfloydcycledetection
+38Detectandremoveloopinlinkedlist
+39Deletenodewithonlypointergiventoit
+40Segregateevenoddnodesoflinkedlist
+41Intersectionoftwolinkedlist
+42Pairwiseswapnodesoflinkedlist
+43Clonealinkedlistusingarandompointer
+44LRUCacheDesign
+45Mergetwosortedlinkedlists
+46PalindromeLinkedList
+IdeaPresentation_TrithonTripletspdf
