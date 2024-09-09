@@ -1,1 +1,9 @@
-This folder is named: 08. Matrix
+01MultidimensionalarrayinCPP
+02Passing2DarraysasargumentsinCPP
+03MatrixinSnakePattern
+04MatrixBoundaryTraversal
+05TransposeofaMatrix
+06RotateMatrixAntiClockwiseby90
+07SpiralTraversalofMatrix
+08SearchinRowWiseandColumnWisesortedmatrix
+09MedianofaRowWiseSortedMatrixC++

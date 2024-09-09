@@ -1,1 +1,18 @@
-This folder is named: 10. Strings
+01IntroductiontoString
+02StringsinC++
+03PalindromeCheck
+04CheckifaStringisSubsequenceofOther
+05CheckforAnagram
+06LeftmostRepeatingCharacter
+07LeftmostNon-repeatingElement
+08Reversewordsinastring
+09OverviewofPatternSearching
+10NaivePatternSearching
+11ImprovedNaivePatternSearchingforDistinct
+12RabinKarpAlgorithm
+13KMPAgorithm(Part1%3aConstructingLPSArray)
+14KMPAgorithm(Part2%3aCompleteAlgorithm)
+15CheckifStringsareRotations
+16AnagramSearch
+17LexicographicRankofaString
+18LongestSubstringwithDistinctCharacters
