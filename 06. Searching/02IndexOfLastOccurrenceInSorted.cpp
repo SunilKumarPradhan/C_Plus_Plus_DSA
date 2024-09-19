@@ -1,17 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <bits/stdc++.h>
-using namespace std;
-
-// Function to find the first occurrence of a value in an array
 int lastOcc(int arr[], int n, int value) {
     for (int i = n-1; i >= 0; --i) {
         if (arr[i] == value) {
-            return i; // Return the index of the first occurrence
+            return i; 
         }
     }
-    return -1; // Return -1 if the value is not found
+    return -1;
 }
 
 int main() {
