@@ -152,5 +152,35 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "editor.mouseWheelZoom": true,
+  "files.autoSave": "afterDelay",
+  "workbench.iconTheme": "vscode-icons",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.colorTheme": "Neon City",
+  "git.autofetch": true,
+  "code-runner.executorMap": {
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+  },
+  "code-runner.runInTerminal": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.5,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "terminal.integrated.fontSize": 12,
+  "explorer.confirmDelete": false,
+  "editor.minimap.enabled": true,
+  "editor.rulers": [
+    80
+  ],
+  "[cpp]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
+  "[python]": {
+    "editor.formatOnSave": true
+  }
 }

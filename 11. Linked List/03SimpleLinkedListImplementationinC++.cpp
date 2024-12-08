@@ -2,54 +2,67 @@
 using namespace std;
 #include <iostream>
 
-struct Node {
+struct Node
+{
     int data;
-    Node* next;
+    Node *next;
 };
 
-Node* createNode(int value) {
-    Node* newNode = new Node;
+Node *createNode(int value)
+{
+    Node *newNode = new Node;
     newNode->data = value;
     newNode->next = nullptr;
     return newNode;
 }
 
-void insert(Node*& head, int value) {
-    Node* newNode = createNode(value);
-    if (!head) {
+void insert(Node *&head, int value)
+{
+    Node *newNode = createNode(value);
+    if (!head)
+    {
         head = newNode;
-    } else {
-        Node* temp = head;
-        while (temp->next) {
+    }
+    else
+    {
+        Node *temp = head;
+        while (temp->next)
+        {
             temp = temp->next;
         }
         temp->next = newNode;
     }
 }
 
-void display(Node* head) {
-    Node* temp = head;
-    while (temp) {
+void display(Node *head)
+{
+    Node *temp = head;
+    while (temp)
+    {
         std::cout << temp->data << " -> ";
         temp = temp->next;
     }
     std::cout << "nullptr" << std::endl;
 }
 
-void cleanup(Node* head) {
-    while (head) {
-        Node* temp = head;
+void cleanup(Node *head)
+{
+    while (head)
+    {
+        Node *temp = head;
         head = head->next;
         delete temp;
     }
 }
 
-int main() {
-    Node* head = nullptr;
+int main()
+{
+    Node *head = nullptr;
     int value;
     char choice;
 
-    do {
+    do
+    {
         std::cout << "Enter a value to insert: ";
         std::cin >> value;
         insert(head, value);
@@ -64,9 +77,6 @@ int main() {
 
     return 0;
 }
-
-
-
 
 /*
 Iss function ka naam hai insert aur yeh linked list mein naya node insert karta hai.
@@ -89,7 +99,7 @@ Linked List structure:
 
 nullptr
 
-then 
+then
 
 - insert function call hota hai with value 10, linked list ab aise dikhai degi:
 
@@ -139,7 +149,7 @@ Linked List structure:
       |       |    | 20    | -> nullptr
       +-------+    +-------+
 
-then 
+then
 
 - display function call hota hai aur output hota hai:
 
@@ -180,7 +190,7 @@ Linked List structure:
       |       |    | 20    | -> nullptr
       +-------+    +-------+
 
-then 
+then
 
 - cleanup function call hota hai aur saari nodes ki memory free hoti hai.
 
