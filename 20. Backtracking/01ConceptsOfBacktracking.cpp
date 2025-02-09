@@ -5,10 +5,14 @@ using namespace std;
 Backtracking
 
 - Definition:
-  Backtracking is a general algorithmic technique for solving problems incrementally by trying partial solutions and then abandoning them if they are not valid. It systematically searches for a solution by exploring all possible options and undoing choices when necessary.
+  Backtracking is a general algorithmic technique for solving problems incrementally by trying partial solutions and then 
+  abandoning them if they are not valid. 
+  It systematically searches for a solution by exploring all possible options and undoing choices when necessary.
 
 - Key Concept:
-  The idea of backtracking is to build a solution step by step, and if at any point, it is determined that the current solution cannot be extended to a valid solution, the algorithm backtracks to the previous step to try a different option.
+  The idea of backtracking is to build a solution step by step, and if at any point, it is determined that the current solution 
+  cannot be extended 
+  to a valid solution, the algorithm backtracks to the previous step to try a different option.
 
 - How It Works:
   1.  Choose : Make a choice from available options.
@@ -25,10 +29,12 @@ Backtracking
   4.  Permutations and Combinations : Generating all possible permutations or combinations of a set.
 
 - Example:
-  Consider the N-Queens problem. We place queens on a chessboard row by row. For each row, we try placing the queen in each column and recursively place queens in subsequent rows. If a placement leads to a valid solution, we proceed; otherwise, we backtrack and try the next column.
+  Consider the N-Queens problem. We place queens on a chessboard row by row. For each row, we try placing the queen in each column and recursively place queens 
+  in subsequent rows. If a placement leads to a valid solution, we proceed; otherwise, we backtrack and try the next column.
 
 - Complexity:
-  The time complexity of backtracking algorithms can be exponential in the worst case, especially for problems with a large search space. However, it is often manageable with pruning techniques and constraints that reduce the search space.
+  The time complexity of backtracking algorithms can be exponential in the worst case, especially for problems with a large search space. However, 
+  it is often manageable with pruning techniques and constraints that reduce the search space.
 
 - Advantages:
   1.  Flexibility : Backtracking can be applied to a wide range of problems.
@@ -38,7 +44,8 @@ Backtracking
   1.  Efficiency : Backtracking may not be efficient for problems with a large number of possible solutions.
   2.  Memory Usage : It may require substantial memory to store intermediate states and choices.
 
-Overall, backtracking is a powerful technique for solving problems that involve exploring multiple potential solutions and systematically finding the one that satisfies the problem constraints.
+Overall, backtracking is a powerful technique for solving problems that involve exploring multiple potential solutions and systematically finding the 
+one that satisfies the problem constraints.
 */
 
 bool isSafe(const string& subseq, const string& exclude) {
